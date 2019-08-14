@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../static/css/mycss.css">
+		
+	</head>
+	<body>
+	
+    	欢迎{{ username }}登录  <a href="/outlogin">安全退出</a>
+    	<hr>
+    	<br>
+	
+		{% for stu in stulist  %}
+		
+		 <li>
+    		 {{ stu.name }} - {{ stu.get_status_display }} 
+    		 {{stu.get_sex_display}} 
+    		 {{ stu.profession }} 
+    		 
+    		 <a href="/editstu?stuid={{ stu.id }}">修改</a>
+    		 <a href="/delstu?stuid={{ stu.id }}">删除</a>
+    		 
+        </li>
+		
+		{% endfor %}
+
+		<a href="/stuadd">新增学生</a>
+	</body>
+</html>
