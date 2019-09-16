@@ -44,5 +44,3 @@ int main()
 	pthread_mutex_destroy(&mutex);
 }
 
-
-
