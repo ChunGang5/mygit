@@ -127,3 +127,123 @@
 //	return 0;
 //}
  
+
+
+//函数的嵌套访问
+//void print()
+//{
+//	printf("吕凯纯是臭傻逼！\n");
+//}
+//
+//void transturn()
+//{
+//	int i;
+//	for (i = 0; i < 10; i++)
+//	{
+//		print();
+//	}
+//}
+//int main()
+//{
+//	transturn();
+//	system("pause");
+//	return 0;
+//}
+
+//void print(unsigned int n)
+//{
+//	if (n > 9)
+//	{
+//		print(n/10);
+//	}
+//	else
+//	{
+//		printf("%d\n", n%10);
+//	}
+//
+//}
+//
+//int main()
+//{
+//	unsigned int num = 1234;
+//	print(num);
+//	system("pause");
+//	return 0;
+//}
+
+//递归求字符串长度
+//int my_strlen(char* str)
+//{
+//	int count = 0;
+//	while(*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+
+
+//int my_strlen(char* str)
+//{
+//	if (*str != '\0')
+//	{
+//		return 1 + my_strlen(str+1);
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//int main()
+//{
+//	int len = my_strlen("abcde");
+//	printf("%d\n", len);
+//	system("pause");
+//	return 0;
+//}
+
+//斐波那契数列的递归做法
+//int fib(int n)
+//{
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return fib(n - 1) + fib(n - 2);
+//	}
+//}
+
+//迭代做法
+//int fib(int n)
+//{
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else{
+//		int a = 1;
+//		int b = 1;
+//		int c = 0;
+//		while (n-2)
+//		{
+//			c = a + b;
+//			a = b;
+//			b = c;
+//			n--;
+//		}
+//		return c;
+//	}
+//	
+//
+//}
+//
+//int main()
+//{
+//	int n = 6;
+//	printf("%d\n", fib(n));
+//	system("pause");
+//	return 0;
+//}
