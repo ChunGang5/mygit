@@ -38,6 +38,7 @@
 //	return 0;
 //}
 
+/*
 int main()
 {
 	char a = 3;		//00000011	
@@ -48,6 +49,23 @@ int main()
 						//c:00000000000000000000000010000010因为是char类型  所以c：10000010
 	printf("%d", c);	//输出又是%d；又提升补符号位：11111111111111111111111110000010
 						//得出原码-1取反：10000000000000000000000001111110=-126
+	system("pause");
+	return 0;
+}
+*/
+
+//实例1
+int main()
+{
+	char a = 0xb6;
+	short b = 0xb600;
+	int c = 0xb6000000;
+	if (a == 0xb6)
+		printf("a");
+	if (b == 0xb600)
+		printf("b");
+	if (c == 0xb6000000)
+		printf("c");
 	system("pause");
 	return 0;
 }
