@@ -95,3 +95,115 @@ int main()
 	}
 	printf("\0");
 }*/
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdlib.h>
+
+using namespace std;
+
+int main()
+{
+	int n = 0;
+	cin >> n;
+	int sum = 0;
+	vector<int> num(n);
+	for (int i = 0; i < num.size(); i++)
+	{
+		cin >> num[i];
+	}
+
+	for (int i = 0; i < num.size(); i++)
+	{
+		if (num[i] > 0)
+		{
+			sum += num[i];
+		}
+	}
+	sort(num.begin(), num.end());
+	if (sum == 0)
+	{
+		sum = num[num.size() - 1];
+	}
+	cout << sum << endl;
+	system("pause");
+	return 0;
+
+}
+/*
+链接：https://www.nowcoder.com/questionTerminal/5a304c109a544aef9b583dce23f5f5db?f=discussion
+来源：牛客网
+
+一个数组有 N 个元素，求连续子数组的最大和。 例如：[-1, 2, 1]，和最大的连续子数组为[2, 1]，其和为 3
+
+输入描述 :
+	 输入为两行。 第一行一个整数n(1 <= n <= 100000)，表示一共有n个元素 第二行为n个数，即每个元素, 每个整数都在32位int范围内。以空格分隔。
+
+
+ 输出描述 :
+所有连续子数组中和最大的值。
+示例1
+输入
+3 - 1 2 1
+输出
+3
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int n = 0;
+	cin >> n;
+	vector<int> num(n);
+	for (int i = 0; i < num.size(); i++)
+	{
+		cin >> num[i];
+	}
+	int result = num[0];
+	int sum1 = 0;
+	int sum2 = 0;
+	for (int i = 0; i < num.size(); i++)
+	{
+		sum2 = sum1 >= 0 ? sum1 + num[i] : num[i];
+		if (sum2 > result)
+		{
+			result = sum2;
+		}
+		if (sum2 < 0)
+		{
+			sum2 = 0;
+		}
+		sum1 = sum2;
+	}
+	cout << result << endl;
+	return 0;
+
+}*/
+/*
+链接：https://www.nowcoder.com/questionTerminal/003482c395bd41c68082f6adc545a600?orderByHotValue=1&page=1&onlyReference=false
+来源：牛客网
+
+给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+("回文串”是一个正读和反读都一样的字符串，比如“level”或者“noon”等等就是回文串。)
+具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。
+可用C++, Java, C#实现相关代码逻辑
+
+输入描述 :
+输入一个字符串S 例如“aabcb”(1 <= | S | <= 50), | S | 表示字符串S的长度。
+
+
+输出描述 :
+符合条件的字符串有"a", "a", "aa", "b", "c", "b", "bcb"
+
+所以答案 : 7
+	   示例1
+	   输入
+	   aabcb
+	   输出
+	   7
+
+	   */
