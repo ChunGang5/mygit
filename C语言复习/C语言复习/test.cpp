@@ -149,5 +149,45 @@
 //	return 0;
 //}
 
+int main()
+{
+	/*int a = 10;
+	float b = 0.200000;
+	printf("%d\n", b);
+	printf("%f\n", a);*/
+	/*char p1[15] = "abcd", *p2 = "ABCD", str[50] = "xyz";
+	strcpy(str + 2, strcat(p1 + 2, p2 + 1));
+	printf("%s\n", str);
+	int a[3] = { 1, 2, 3 };
+	printf("%d\n", a + 1);*/
 
+	/*int a = 1;
+	int b = 0;
+	b = a++;
+	printf("%d\n", b);*/
+
+	/*int a = 010;
+	printf("%d\n", a);*/
+
+	/*int *p = NULL;
+	printf("%d\n", sizeof(p));
+	printf("%d\n", sizeof(*p));
+	int a[100];
+	printf("%d\n", sizeof(a));
+	printf("%d\n", sizeof(a[100]));
+	printf("%d\n", sizeof(&a));
+	printf("%d\n", sizeof(&a[0]));
+
+	int b[100];
+	void fun(int b[100])
+	{
+		printf("%d\n", sizeof(b));
+	}*/
+
+	
+
+
+	system("pause");
+	return 0;
+}
 
