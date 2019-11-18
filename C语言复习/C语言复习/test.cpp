@@ -149,44 +149,93 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	/*int a = 10;
+//	float b = 0.200000;
+//	printf("%d\n", b);
+//	printf("%f\n", a);*/
+//	/*char p1[15] = "abcd", *p2 = "ABCD", str[50] = "xyz";
+//	strcpy(str + 2, strcat(p1 + 2, p2 + 1));
+//	printf("%s\n", str);
+//	int a[3] = { 1, 2, 3 };
+//	printf("%d\n", a + 1);*/
+//
+//	/*int a = 1;
+//	int b = 0;
+//	b = a++;
+//	printf("%d\n", b);*/
+//
+//	/*int a = 010;
+//	printf("%d\n", a);*/
+//
+//	/*int *p = NULL;
+//	printf("%d\n", sizeof(p));
+//	printf("%d\n", sizeof(*p));
+//	int a[100];
+//	printf("%d\n", sizeof(a));
+//	printf("%d\n", sizeof(a[100]));
+//	printf("%d\n", sizeof(&a));
+//	printf("%d\n", sizeof(&a[0]));
+//
+//	int b[100];
+//	void fun(int b[100])
+//	{
+//		printf("%d\n", sizeof(b));
+//	}*/
+//
+//	system("pause");
+//	return 0;
+//}
+
+int add(int x, int y)
+{
+	return x + y;
+}
+int sub(int x, int y)
+{
+	return x - y;
+}
+int mul(int x, int y)
+{
+	return x*y;
+}
+
+int dive(int x, int y)
+{
+	return x / y;
+}
+
+
+
 int main()
 {
-	/*int a = 10;
-	float b = 0.200000;
-	printf("%d\n", b);
-	printf("%f\n", a);*/
-	/*char p1[15] = "abcd", *p2 = "ABCD", str[50] = "xyz";
-	strcpy(str + 2, strcat(p1 + 2, p2 + 1));
-	printf("%s\n", str);
-	int a[3] = { 1, 2, 3 };
-	printf("%d\n", a + 1);*/
-
-	/*int a = 1;
-	int b = 0;
-	b = a++;
-	printf("%d\n", b);*/
-
-	/*int a = 010;
-	printf("%d\n", a);*/
-
-	/*int *p = NULL;
-	printf("%d\n", sizeof(p));
-	printf("%d\n", sizeof(*p));
-	int a[100];
-	printf("%d\n", sizeof(a));
-	printf("%d\n", sizeof(a[100]));
-	printf("%d\n", sizeof(&a));
-	printf("%d\n", sizeof(&a[0]));
-
-	int b[100];
-	void fun(int b[100])
+	int select = 1;
+	int ret = 0;
+	int x = 0;
+	int y = 0;
+	int(*p[5])(int x ,int y ) = {add, sub, mul, dive };
+	while (select)
 	{
-		printf("%d\n", sizeof(b));
-	}*/
-
-	
-
-
+		printf("**************************\n");
+		printf("******1.add		2.sub*******\n");
+		printf("******3.mul		4.dive*****\n");
+		printf("**************************\n");
+		printf("请选择\n");
+		scanf("%d", &select);
+		if (select >= 1 && select <= 4)
+		{
+			printf("请输入你要计算的数字\n");
+			scanf("%d%d", &x, &y);	//重打了一遍scanf之后就好了？不知道为什么？
+			ret = (*(p[select-1]))(x, y);
+			
+		}
+		else
+		{
+			printf("请重新输入\n");
+		}
+		printf("%d\n", ret);
+	}
 	system("pause");
 	return 0;
 }
