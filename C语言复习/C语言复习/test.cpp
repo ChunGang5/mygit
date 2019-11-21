@@ -188,55 +188,75 @@
 //	return 0;
 //}
 
-int add(int x, int y)
-{
-	return x + y;
-}
-int sub(int x, int y)
-{
-	return x - y;
-}
-int mul(int x, int y)
-{
-	return x*y;
-}
-
-int dive(int x, int y)
-{
-	return x / y;
-}
-
-
+//int add(int x, int y)
+//{
+//	return x + y;
+//}
+//int sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int mul(int x, int y)
+//{
+//	return x*y;
+//}
+//
+//int dive(int x, int y)
+//{
+//	return x / y;
+//}
+//
+//
+//
+//int main()
+//{
+//	int select = 1;
+//	int ret = 0;
+//	int x = 0;
+//	int y = 0;
+//	int(*p[5])(int x ,int y ) = {add, sub, mul, dive };
+//	while (select)
+//	{
+//		printf("**************************\n");
+//		printf("******1.add		2.sub*******\n");
+//		printf("******3.mul		4.dive*****\n");
+//		printf("**************************\n");
+//		printf("请选择\n");
+//		scanf("%d", &select);
+//		if (select >= 1 && select <= 4)
+//		{
+//			printf("请输入你要计算的数字\n");
+//			scanf("%d%d", &x, &y);	//重打了一遍scanf之后就好了？不知道为什么？
+//			ret = (*(p[select-1]))(x, y);
+//			
+//		}
+//		else
+//		{
+//			printf("请重新输入\n");
+//		}
+//		printf("%d\n", ret);
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 int main()
 {
-	int select = 1;
-	int ret = 0;
-	int x = 0;
-	int y = 0;
-	int(*p[5])(int x ,int y ) = {add, sub, mul, dive };
-	while (select)
+	int i = 0;
+	while (1)
 	{
-		printf("**************************\n");
-		printf("******1.add		2.sub*******\n");
-		printf("******3.mul		4.dive*****\n");
-		printf("**************************\n");
-		printf("请选择\n");
-		scanf("%d", &select);
-		if (select >= 1 && select <= 4)
+		switch (i)
 		{
-			printf("请输入你要计算的数字\n");
-			scanf("%d%d", &x, &y);	//重打了一遍scanf之后就好了？不知道为什么？
-			ret = (*(p[select-1]))(x, y);
-			
+		case 0.1:
+			break;
+		case A:
+			break;
+		case -1:
+			break;
+		case 3/2:
+			break;
 		}
-		else
-		{
-			printf("请重新输入\n");
-		}
-		printf("%d\n", ret);
 	}
 	system("pause");
 	return 0;
 }
-
