@@ -240,23 +240,109 @@
 //	return 0;
 //}
 
-int main()
-{
-	int i = 0;
-	while (1)
-	{
-		switch (i)
-		{
-		case 0.1:
-			break;
-		case A:
-			break;
-		case -1:
-			break;
-		case 3/2:
-			break;
-		}
-	}
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	int i = 0;
+//	while (1)
+//	{
+//		switch (i)
+//		{
+//		case 0.1:
+//			break;
+//		case A:
+//			break;
+//		case -1:
+//			break;
+//		case 3/2:
+//			break;
+//		}
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+
+//int check()
+//{
+//	int i = 1;
+//	return (*(char*)&i);	//将i的地址强转为char*(就等于取出i的第一个字节的地址)，然后解引用，如果是小端=1：0x01 000000，大端0；0x00 000001
+//}
+//int main()
+//{
+//	int ret = check();
+//	if (ret == 1)
+//	{
+//		printf("小端\n");
+//	}
+//	if (ret == 0)
+//	{
+//		printf("大端\n");
+//	}
+//	system("pause");
+//}
+
+//利用联合体（union）只在同一块内存里改变，修改一个成员会影响其余所有成员的特性求大小端
+//union check
+//{
+//	int i;
+//	int c;
+//}un;
+//
+//int main()
+//{
+//	un.i = 1;
+//	if (un.c == 1)
+//	{
+//		printf("小端\n");
+//	}
+//	if (un.c == 0)
+//	{
+//		printf("大端\n");
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+//int main()
+//{
+//	const char* str1 = "abcdef";
+//	const char* str2 = "abc";
+//	if (strlen(str2) - strlen(str1) > 0)	//因为strlen()函数的返回值是size_t,是无符号的整型，所以此条件永远成立
+//	{
+//		printf("str2>str1\n");
+//	}
+//	else
+//	{
+//		printf("str1>str2\n");
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+//#include <string.h>
+//int main()
+//{
+//	char str[] = "This is a simple string";
+//	char * pch;
+//	pch = strstr(str, "simple");
+//	strncpy(pch, "sample", 6);
+//	puts(str);
+//	system("pause");
+//	return 0;
+//}
+
+//int main()
+//{
+//	char str[] = "- This, a sample string.";
+//	char* pch;
+//	printf("Splitting string \"%s\" into tokes:\n", str);
+//	pch = strtok(str, " ,.-");
+//	while (pch != NULL)
+//	{
+//		printf("%s\n", pch);
+//		pch = strtok(NULL, " ,.-");
+//
+//	}
+//	system("pause");
+//	return 0;
+//}
