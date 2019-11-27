@@ -95,42 +95,42 @@ int main()
 	}
 	printf("\0");
 }*/
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <stdlib.h>
-
-using namespace std;
-
-int main()
-{
-	int n = 0;
-	cin >> n;
-	int sum = 0;
-	vector<int> num(n);
-	for (int i = 0; i < num.size(); i++)
-	{
-		cin >> num[i];
-	}
-
-	for (int i = 0; i < num.size(); i++)
-	{
-		if (num[i] > 0)
-		{
-			sum += num[i];
-		}
-	}
-	sort(num.begin(), num.end());
-	if (sum == 0)
-	{
-		sum = num[num.size() - 1];
-	}
-	cout << sum << endl;
-	system("pause");
-	return 0;
-
-}
+//
+//#include <iostream>
+//#include <vector>
+//#include <algorithm>
+//#include <stdlib.h>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	int n = 0;
+//	cin >> n;
+//	int sum = 0;
+//	vector<int> num(n);
+//	for (int i = 0; i < num.size(); i++)
+//	{
+//		cin >> num[i];
+//	}
+//
+//	for (int i = 0; i < num.size(); i++)
+//	{
+//		if (num[i] > 0)
+//		{
+//			sum += num[i];
+//		}
+//	}
+//	sort(num.begin(), num.end());
+//	if (sum == 0)
+//	{
+//		sum = num[num.size() - 1];
+//	}
+//	cout << sum << endl;
+//	system("pause");
+//	return 0;
+//
+//}
 /*
 链接：https://www.nowcoder.com/questionTerminal/5a304c109a544aef9b583dce23f5f5db?f=discussion
 来源：牛客网
@@ -207,3 +207,27 @@ int main()
 	   7
 
 	   */
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int month = 0;
+	while ((scanf("%d", month)) != EOF)
+	{
+		int i;
+		long sum;
+		long x = 0, y = 0;
+		if (month>2)
+		{
+			for (i = 3; i <= month; i++)
+			{
+				sum = x + y;
+				x = y;
+				y = sum;
+			}
+		}
+		printf("%d\n", sum);
+	}
+	return 0;
+}
