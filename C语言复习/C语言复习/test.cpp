@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<stdlib.h>
+#include <Windows.h>
 
 //int main()
 //{
@@ -343,6 +344,183 @@
 //		pch = strtok(NULL, " ,.-");
 //
 //	}
+//	system("pause");
+//	return 0;
+//}
+
+//qsort		回调函数
+//int com_big(const void* px,const void* py)
+//{
+//	int* px_ = (int*)px;
+//	int* py_ = (int*)py;
+//	if (*px_ > *py_)
+//	{
+//		return 1;
+//	}
+//	else if (*px_ < *py_)
+//	{
+//		return -1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1, 2, 3, 85, 65, 31, 324, 86, 148, 12 };
+//	int arr_size = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, arr_size, sizeof(int),com_big);
+//	system("pause");
+//	return 0;
+//}
+
+//冒泡排序-升序
+//int main()
+//{
+//	int arr[5] = { 3, 5, 10, 8, 9 };
+//	int num = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	int tep = 0;
+//	for (i = 0; i < num - 1 ; i++)	//5个数只能比较四次
+//	{
+//		int j;
+//		for (j = 0; j < num - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				tep = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tep;
+//			}
+//			
+//		}
+//	}
+//	for (i = 0; i < num; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*一个数组内除了两个不同的数，其它数都是成对出现的，找出那两个单独的数并输出
+void FindTwoDiff(int arr[], int num, int *px, int *py)
+{
+	int temp = arr[0];
+	int i = 0;
+	for (i = 1; i < num; i++)	//先将数组内的数据全部异或，得到一个肯定不是0的数
+	{
+		temp ^= arr[i];
+	}
+	int pos = 0;
+	while (temp)
+	{
+		if (((temp >> pos) & 1))	//找出异或的到的那个数的最低位起第一个不为0的位
+		{
+			break;
+		}
+		pos++;
+	}
+	*px = 0;
+	*py = 0;
+	for (i = 0; i < num; i++)
+	{
+		if ((arr[i] >> pos) & 1)
+		{
+			//现在本数组里只剩两个数了，找出pos位是1的数
+			*px ^= arr[i];
+		}
+		else
+		{
+			//找出pos位为0的数
+			*py ^= arr[i];
+		}
+	}
+
+}
+int main()
+{
+	int arr[] = { 1, 2, 3, 1, 2, 4, 3, 5 };
+	int num = sizeof(arr) / sizeof(arr[0]);
+	int x = 0;
+	int y = 0;
+	FindTwoDiff(arr, num, &x, &y);	//out_type_data
+	printf("%d,%d", x, y);
+	system("pause");
+	return 0;
+}
+*/
+
+//int main()
+//{
+//	int a = 10;
+//	printf("%d", a >> 2);	
+//	system("pause");
+//	return 0;
+//}
+
+//#include <stdio.h>
+//
+//int sum(int month_)
+//{
+//	int month = month_;
+//	if (month == 1 || month == 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return sum(month - 1) + sum(month - 2);
+//	}
+//}
+//int main()
+//{
+//	int month = 0;
+//	scanf("%d", &month);
+//	int ret = sum(month);
+//	printf("%d\n", month);
+//	system("pause");
+//	return 0;
+//}
+
+int main()
+{
+	int month = 0;
+	int num1 = 1;
+	int num2 = 1;
+	int temp;
+	int i = 0;
+	while (scanf("%d", &month))
+	{
+		for (i = 3; i <= month; ++i)
+		{
+			temp = num1 + num2;
+			num1 = num2;
+			num2 = temp;
+		}
+		printf("%d\n", temp);
+	}
+	system("pause");
+	return 0;
+}
+
+
+//enum Color
+//{
+//	green = 1,
+//	red = 2,
+//	yellow = 3,
+//};
+//int main()
+//{
+//	enum Color cl;
+//
+//	char arr[] = "/ddd10";
+//	int a= 10;
+//
+//	cl = red;
+//	printf("%d\n",cl);
 //	system("pause");
 //	return 0;
 //}
