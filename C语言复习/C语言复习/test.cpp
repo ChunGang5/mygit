@@ -3,6 +3,59 @@
 #include<stdlib.h>
 #include <Windows.h>
 
+#include <iostream>
+#include <string>
+#include <ctype.h>
+using namespace std;
+
+int main()
+{
+	string s1, s2;
+	cin >> s1;
+	cin >> s2;
+	int i = 0;
+	int s1_num = 0;
+	int s2_num = 0;
+	s1_num = s1.length();
+	s2_num = s2.length();
+	for (i = 0; i < s1_num; i++)
+	{
+		s1[i] = tolower(s1[i]);
+	}
+	for (i = 0; i < s2_num; i++)
+	{
+		s2[i] = tolower(s2[i]);
+	}
+	if (s1_num > s2_num)
+	{	//s2_num
+		for (i = 0; i < s2_num; i++)
+		{
+
+		}
+	}
+	return 0;
+}
+
+//·´ÏòÊä³ö×Ö·û´®
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//
+//int main()
+//{
+//	string str;
+//	cin >> str;
+//	int i = 0;
+//	while (str[i] != '\0')
+//	{
+//		i++;
+//	}
+//	while (i--)
+//	{
+//		cout << str[i];
+//	}
+//	return 0;
+//}
 //int main()
 //{
 //	int a = 0x11223344;
@@ -465,45 +518,56 @@ int main()
 //int sum(int month_)
 //{
 //	int month = month_;
-//	if (month == 1 || month == 2)
+//	if (month < 3)
 //	{
 //		return 1;
 //	}
 //	else
 //	{
-//		return sum(month - 1) + sum(month - 2);
+//		return sum(month - 2) + sum(month - 1);
 //	}
 //}
 //int main()
 //{
 //	int month = 0;
-//	scanf("%d", &month);
-//	int ret = sum(month);
-//	printf("%d\n", month);
+//	while (scanf("%d", &month)!=EOF)
+//	{
+//		int ret = 0;
+//		ret = sum(month);
+//		printf("%d\n", ret);
+//	}
+//	
+//	
 //	system("pause");
 //	return 0;
 //}
 
-int main()
-{
-	int month = 0;
-	int num1 = 1;
-	int num2 = 1;
-	int temp;
-	int i = 0;
-	while (scanf("%d", &month))
-	{
-		for (i = 3; i <= month; ++i)
-		{
-			temp = num1 + num2;
-			num1 = num2;
-			num2 = temp;
-		}
-		printf("%d\n", temp);
-	}
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	int month = 0;
+//	
+//	int i = 0;
+//	scanf("%d", &month);
+//	if (month < 3)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		for (i = 3; i <= month; ++i)
+//		{
+//			int num1 = 1;
+//			int num2 = 1;
+//			int temp;
+//			temp = num1 + num2;
+//			num1 = num2;
+//			num2 = temp;
+//		}
+//		printf("%d\n", temp);
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 
 //enum Color
