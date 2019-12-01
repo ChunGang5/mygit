@@ -2,39 +2,89 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <Windows.h>
+#include <assert.h>
 
 #include <iostream>
 #include <string>
 #include <ctype.h>
 using namespace std;
 
+//int main()
+//{
+//	char str[] = "Hello world!";
+//	char *ptr = NULL; 
+//
+//	ptr = strstr(str, "worl");
+//	printf("%s\n", ptr);
+//	system("pause");
+//	return 0;
+//}
+
+//模拟实现strstr()函数
+char *my_strstr(const char *str1,char *str2)
+{
+	assert(str1);
+	assert(str2);
+	if (*str2 == '\0')
+	{
+		return NULL;
+	}
+	char *cp = (char*)str1;
+	char *sub_str = (char*)str2;
+	char *s1 = NULL;
+	while (*cp)
+	{
+		s1 = cp;
+		sub_str = str2;
+		while (*s1&&*sub_str && (*s1 == *sub_str))
+		{
+			s1++;
+			sub_str++;
+		}
+		if (*sub_str == '\0')
+		{
+			return cp;
+		}
+		cp++;
+	}
+
+}
 int main()
 {
-	string s1, s2;
-	cin >> s1;
-	cin >> s2;
-	int i = 0;
-	int s1_num = 0;
-	int s2_num = 0;
-	s1_num = s1.length();
-	s2_num = s2.length();
-	for (i = 0; i < s1_num; i++)
-	{
-		s1[i] = tolower(s1[i]);
-	}
-	for (i = 0; i < s2_num; i++)
-	{
-		s2[i] = tolower(s2[i]);
-	}
-	if (s1_num > s2_num)
-	{	//s2_num
-		for (i = 0; i < s2_num; i++)
-		{
-
-		}
-	}
+	char str[] = "I am zhanan";
+	char *ptr = NULL;
+	ptr=my_strstr(str, "am");
+	printf("%s\n", ptr);
+	system("pause");
 	return 0;
 }
+//int main()
+//{
+//	string s1, s2;
+//	cin >> s1;
+//	cin >> s2;
+//	int i = 0;
+//	int s1_num = 0;
+//	int s2_num = 0;
+//	s1_num = s1.length();
+//	s2_num = s2.length();
+//	for (i = 0; i < s1_num; i++)
+//	{
+//		s1[i] = tolower(s1[i]);
+//	}
+//	for (i = 0; i < s2_num; i++)
+//	{
+//		s2[i] = tolower(s2[i]);
+//	}
+//	if (s1_num > s2_num)
+//	{	//s2_num
+//		for (i = 0; i < s2_num; i++)
+//		{
+//
+//		}
+//	}
+//	return 0;
+//}
 
 //反向输出字符串
 //#include <iostream>
