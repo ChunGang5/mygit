@@ -3,12 +3,23 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <assert.h>
+//typedef struct student
+//{
+//	char name[10];
+//	int age;
+//}s;
 
-#include <iostream>
-#include <string>
-#include <ctype.h>
-using namespace std;
-
+int main()
+{
+	/*struct student std1 = { "chengang", 22 };*/
+	//s std1 = { "chengang", 22 };
+	//printf("%s\n", std1.name);
+	const int n = 10;
+	scanf("%d", &n);
+	int arr[n] = {};
+	system("pause");
+	return 0;
+}
 //int main()
 //{
 //	char str[] = "Hello world!";
@@ -21,43 +32,43 @@ using namespace std;
 //}
 
 //模拟实现strstr()函数
-char *my_strstr(const char *str1,char *str2)
-{
-	assert(str1);
-	assert(str2);
-	if (*str2 == '\0')
-	{
-		return NULL;
-	}
-	char *cp = (char*)str1;
-	char *sub_str = (char*)str2;
-	char *s1 = NULL;
-	while (*cp)
-	{
-		s1 = cp;
-		sub_str = str2;
-		while (*s1&&*sub_str && (*s1 == *sub_str))
-		{
-			s1++;
-			sub_str++;
-		}
-		if (*sub_str == '\0')
-		{
-			return cp;
-		}
-		cp++;
-	}
-
-}
-int main()
-{
-	char str[] = "I am zhanan";
-	char *ptr = NULL;
-	ptr=my_strstr(str, "am");
-	printf("%s\n", ptr);
-	system("pause");
-	return 0;
-}
+//char *my_strstr(const char *str1,char *str2)
+//{
+//	assert(str1);
+//	assert(str2);
+//	if (*str2 == '\0')
+//	{
+//		return NULL;
+//	}
+//	char *cp = (char*)str1;
+//	char *sub_str = (char*)str2;
+//	char *s1 = NULL;
+//	while (*cp)
+//	{
+//		s1 = cp;
+//		sub_str = str2;
+//		while (*s1&&*sub_str && (*s1 == *sub_str))
+//		{
+//			s1++;
+//			sub_str++;
+//		}
+//		if (*sub_str == '\0')
+//		{
+//			return cp;
+//		}
+//		cp++;
+//	}
+//
+//}
+//int main()
+//{
+//	char str[] = "I am zhanan";
+//	char *ptr = NULL;
+//	ptr=my_strstr(str, "am");
+//	printf("%s\n", ptr);
+//	system("pause");
+//	return 0;
+//}
 //int main()
 //{
 //	string s1, s2;
