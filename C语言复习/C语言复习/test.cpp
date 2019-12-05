@@ -3,23 +3,75 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <assert.h>
+
+//¿ìËÙÅÅĞò
+int Partition(int a[], int i, int j)
+{
+	int temp = a[i];
+	while (i < j)
+	{
+		while (a[j] >= temp&&j>i)
+		{
+			j--;
+		}
+		if (i < j)
+		{
+			a[i] = a[j];
+			i++;
+		}
+		while (a[i] <= temp&&j>i)
+		{
+			i++;
+		}
+		if (i < j)
+		{
+			a[j] = a[i];
+			j--;
+		}	
+	}
+	a[i] = temp;
+	return i;
+}
+void QuickSort(int a[], int i, int j)
+{
+	int k;
+	if (i < j)
+	{
+		k = Partition(a, i, j);
+		QuickSort(a, i, k - 1);
+		QuickSort(a, k + 1, j);
+	}
+}
+int main()
+{
+	int arr[8] = { 4, 3, 7, 1, 2, 8, 6, 5 };
+	int i = 0;
+	int j = sizeof(arr) / sizeof(arr[0]) - 1;
+	QuickSort(arr, i, j);
+	for (int k = 0; k <= j; k++)
+	{
+		printf("%d ", arr[k]);
+	}
+	system("pause");
+	return 0;
+}
 //typedef struct student
 //{
 //	char name[10];
 //	int age;
 //}s;
 
-int main()
-{
-	/*struct student std1 = { "chengang", 22 };*/
-	//s std1 = { "chengang", 22 };
-	//printf("%s\n", std1.name);
-	const int n = 10;
-	scanf("%d", &n);
-	int arr[n] = {};
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	/*struct student std1 = { "chengang", 22 };*/
+//	//s std1 = { "chengang", 22 };
+//	//printf("%s\n", std1.name);
+//	const int n = 10;
+//	scanf("%d", &n);
+//	int arr[n] = {};
+//	system("pause");
+//	return 0;
+//}
 //int main()
 //{
 //	char str[] = "Hello world!";
