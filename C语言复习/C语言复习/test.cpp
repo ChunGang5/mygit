@@ -4,57 +4,100 @@
 #include <Windows.h>
 #include <assert.h>
 
-//快速排序
-int Partition(int a[], int i, int j)
+//模拟实现strlen()
+//方法一
+//int my_strlen(char *str)
+//{
+//	int count = 0;
+//	while (*str++!='\0')
+//	{
+//		count++;
+//	}
+//	return count;
+//}
+
+//指针-指针
+//int my_strlen(char *str)
+//{
+//	char *p = str;
+//	while (*p != '\0')
+//	{
+//		p++;
+//	}
+//	return p - str;
+//
+//}
+
+int my_strlen(char *str)
 {
-	int temp = a[i];
-	while (i < j)
+	if (*str == '\0')
 	{
-		while (a[j] >= temp&&j>i)
-		{
-			j--;
-		}
-		if (i < j)
-		{
-			a[i] = a[j];
-			i++;
-		}
-		while (a[i] <= temp&&j>i)
-		{
-			i++;
-		}
-		if (i < j)
-		{
-			a[j] = a[i];
-			j--;
-		}	
+		return 0;
 	}
-	a[i] = temp;
-	return i;
-}
-void QuickSort(int a[], int i, int j)
-{
-	int k;
-	if (i < j)
+	else
 	{
-		k = Partition(a, i, j);
-		QuickSort(a, i, k - 1);
-		QuickSort(a, k + 1, j);
+		return 1 + my_strlen(str++);
 	}
 }
 int main()
 {
-	int arr[8] = { 4, 3, 7, 1, 2, 8, 6, 5 };
-	int i = 0;
-	int j = sizeof(arr) / sizeof(arr[0]) - 1;
-	QuickSort(arr, i, j);
-	for (int k = 0; k <= j; k++)
-	{
-		printf("%d ", arr[k]);
-	}
+	char *str = "abcdefg";
+	printf("%d\n", my_strlen(str));
 	system("pause");
 	return 0;
 }
+////快速排序
+//int Partition(int a[], int i, int j)
+//{
+//	int temp = a[i];
+//	while (i < j)
+//	{
+//		while (a[j] >= temp&&j>i)
+//		{
+//			j--;
+//		}
+//		if (i < j)
+//		{
+//			a[i] = a[j];
+//			i++;
+//		}
+//		while (a[i] <= temp&&j>i)
+//		{
+//			i++;
+//		}
+//		if (i < j)
+//		{
+//			a[j] = a[i];
+//			j--;
+//		}	
+//	}
+//	a[i] = temp;
+//	return i;
+//}
+//void QuickSort(int a[], int i, int j)
+//{
+//	int k;
+//	if (i < j)
+//	{
+//		k = Partition(a, i, j);
+//		QuickSort(a, i, k - 1);
+//		QuickSort(a, k + 1, j);
+//	}
+//}
+//int main()
+//{
+//	int arr[8] = { 4, 3, 7, 1, 2, 8, 6, 5 };
+//	int i = 0;
+//	int j = sizeof(arr) / sizeof(arr[0]) - 1;
+//	QuickSort(arr, i, j);
+//	for (int k = 0; k <= j; k++)
+//	{
+//		printf("%d ", arr[k]);
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 //typedef struct student
 //{
 //	char name[10];
