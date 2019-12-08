@@ -4,6 +4,88 @@
 #include <Windows.h>
 #include <assert.h>
 
+
+int main()
+{
+	FILE *fp;
+
+	fp = fopen("file.txt", "w+");
+
+	fputs("这是 C 语言。", fp);
+	fputs("这是一种系统程序设计语言。", fp);
+
+	fclose(fp);
+
+	return(0);
+}
+//int main()
+//{
+//	FILE* fp = fopen("test.txt", "w");
+//	const char arr[5] = "abcd";
+//	const char *msg = "  camikamfi";
+//	if (fp==NULL)
+//	{
+//		printf("fp error!\n");
+//	}
+//	//fprintf(fp, "lkc %d %s", 21, "beautiful");
+//	/*while (*msg)
+//	{
+//		char c = fputc(*msg, fp);
+//		msg++;
+//	}*/
+//	fputs(*msg, fp);
+//
+//	//fwrite(msg,strlen(msg),1, fp);
+//	/*if (pf != NULL)
+//	{
+//		fputs("fopen example\n", pf);
+//		fclose(pf);
+//	}*/
+//	fclose(fp);
+//
+//	system("pause");
+//	return 0;
+//}
+
+//struct str{
+//	int len;
+//	char s[0];
+//};
+//
+//struct foo {
+//	struct str *a;
+//};
+//
+//int main(int argc, char** argv) {
+//	struct foo f = { 0 };
+//	if (f.a->s) {
+//		printf(f.a->s);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int num = 0;
+//	//scanf("%d", &num);
+//	//int arr[num] = { 0 };
+//
+//	int *p = NULL;
+//	p = (int*)malloc(num*sizeof(int));
+//	if (NULL != *p)
+//	{
+//		for (int i = 0; i < num; i++)
+//		{
+//			*(p + i) = 0;
+//		}
+//	}
+//	free(p);
+//	p = NULL;
+//	system("pause");
+//	return 0;
+//}
+
+
 //模拟实现strlen()
 //方法一
 //int my_strlen(char *str)
@@ -28,24 +110,26 @@
 //
 //}
 
-int my_strlen(char *str)
-{
-	if (*str == '\0')
-	{
-		return 0;
-	}
-	else
-	{
-		return 1 + my_strlen(str++);
-	}
-}
-int main()
-{
-	char *str = "abcdefg";
-	printf("%d\n", my_strlen(str));
-	system("pause");
-	return 0;
-}
+//int my_strlen(char *str)
+//{
+//	if (*str == '\0')
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		return 1 + my_strlen(str++);
+//	}
+//}
+//int main()
+//{
+//	char *str = "abcdefg";
+//	printf("%d\n", my_strlen(str));
+//	system("pause");
+//	return 0;
+//}
+
+
 ////快速排序
 //int Partition(int a[], int i, int j)
 //{
