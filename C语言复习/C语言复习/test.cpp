@@ -4,20 +4,89 @@
 #include <Windows.h>
 #include <assert.h>
 
-
+//int my_strcmp(const char *dest, const char *src)
+//{
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	int ret = 0;
+//	while (!(ret = *(unsigned char*)dest - *(unsigned char*)src))	//以ASSIC码的形式对比
+//	{
+//		dest++;
+//		src++;
+//	}
+//	if (ret < 0)
+//	{
+//		ret = -1;
+//	}
+//	if (ret>0)
+//	{
+//		ret = 1;
+//	}
+//	return ret;
+//}
 int main()
 {
-	FILE *fp;
+	int *p[] = {0};
 
-	fp = fopen("file.txt", "w+");
-
-	fputs("这是 C 语言。", fp);
-	fputs("这是一种系统程序设计语言。", fp);
-
-	fclose(fp);
-
-	return(0);
+	system("pause");
+	return 0;
 }
+//模拟实现my_strcat
+//char *my_strcat(char *dest, const char *src)
+//{
+//	char *ret = dest;
+//	assert(dest != NULL);
+//	assert(src != NULL);
+//	while (*dest != '\0')
+//	{
+//		dest++;
+//	}
+//	while (*dest = *src)
+//	{
+//		dest++;
+//		src++;
+//	}
+//	return ret;
+//}
+//模拟实现my_strcpy
+//char *my_strcpy(char *dest, const char *src)
+//{
+//	char *ret = dest;
+//	assert(dest!=NULL);
+//	assert(src != NULL);
+//	while (*dest = *src)
+//	{
+//		dest++;
+//		src++;
+//	}
+//	return ret;
+//
+//}
+//int main()
+//{
+//	char str1[] = "abcd";
+//	char str2[] = "ed";
+//	/*printf("%s\n", my_strcpy(str1, str2));*/
+//	/*printf("%s\n", my_strcat(str1, str2));*/
+//	printf("%d\n", my_strcmp(str1, str2));
+//	system("pause");
+//	return 0;
+//}
+//int main()
+//{
+//	FILE *fp;
+//
+//	fp = fopen("file.txt", "a");
+//
+//	fputs("这是 C 语言。", fp);
+//	fputs("这是一种系统程序设计语言。", fp);
+//
+//
+//
+//	fclose(fp);
+//	system("pause");
+//	return(0);
+//}
 //int main()
 //{
 //	FILE* fp = fopen("test.txt", "w");
