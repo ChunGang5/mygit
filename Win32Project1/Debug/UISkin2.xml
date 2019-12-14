@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1177,800">
+    <VerticalLayout width="1177" height="800" bkimage="C:\Users\谁还不是个小帅比了\Pictures\Saved Pictures\QQ图片20190513170600.jpg">
+        <HorizontalLayout width="1175" height="62" bkcolor="#FF00FF00" />
+    </VerticalLayout>
+</Window>

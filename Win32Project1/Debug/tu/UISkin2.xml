@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1177,800">
+    <VerticalLayout width="1177" height="800" bkimage="C:\Users\谁还不是个小帅比了\Pictures\Saved Pictures\QQ图片20190513170600.jpg">
+        <HorizontalLayout width="1175" height="62" bkcolor="#FF00FF00">
+            <Button float="true" pos="1113,19,0,0" width="43" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            <Button float="true" pos="1116,12,0,0" width="43" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>
