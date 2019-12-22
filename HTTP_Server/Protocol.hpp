@@ -11,6 +11,7 @@
 #include <vector>
 #include <unistd.h>
 #include <unordered_map>	//采用哈希
+#include "Util.hpp"
 using namespace std;
 
 class HttpRequest{
@@ -37,6 +38,10 @@ class HttpRequest{
 		string &GetRequestLine()
 		{
 			return request_line;
+		}
+		string &GetRequestBody()
+		{
+			return request_body;
 		}
 		bool MethodIsLegal()
 		{
@@ -71,7 +76,19 @@ class HttpRequest{
 				header_kv.insert(make_pair<string,string>(k,v));
 			}
 		}
-		
+		bool IsNeedRecv()
+		{
+			return method == "POST";
+		}
+		int GetContentLength()
+		{
+			auto it = header_kv.find("Content-Length");
+			if(it==header_kv.end())
+			{
+				return -1;	
+			}
+			return Util::StringToInt(it->second);
+		}
 		~HttpRequest()
 		{
 				
@@ -159,6 +176,19 @@ class EndPoint{	//远端
 			rh += line;
 			}while(1)
 		}
+		void RecvRequestBody(HttpRequest *rq)
+		{//读request
+			int len = rq->GetContentLength();
+			string &body = rq->GetRequestBody();
+			while(len--)
+			{
+				if(recv(sock,&c,1,0)>0)
+				{
+					body.push_back(c);	
+				}
+
+			}
+		}
 		~EndPoint(int sock_)
 		{
 			}
@@ -184,6 +214,7 @@ class Entry{
 
 		    ep->RecvRequestLine(rq);
 		    rq->RequestLineParse();
+
 		    if(!rq -> MethodIsLegal())
 		    {
 			    //非法方法
@@ -197,15 +228,11 @@ class Entry{
 				ep->RecvRequestBody(rq);
 
 			}
+
 end:			
 		    delete rq;
 		    delete req;
 		    delete ep;
 		    delete p;
 		    }
-
-		
-	
-	
-	
-};
+}

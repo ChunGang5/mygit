@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <pthread>
+#include <pthread.h>
 #include "Protocol.hpp"
 #include "Util.hpp"
 
