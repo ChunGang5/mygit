@@ -3,7 +3,52 @@
 #include<stdlib.h>
 #include <Windows.h>
 #include <assert.h>
-
+int BinarySearch(int arr[],int key,int length)
+{
+	int left = 0;
+	int right = length;
+	int k = 0;
+	int ret = -1;
+	while (left < right)
+	{
+		
+		k = left + (right - left) / 2;
+		if (arr[k]>key)
+		{
+			right = k - 1;
+		}
+		else if (arr[k] < key)
+		{
+			left = k + 1;
+		}
+		else
+		{
+			ret = k;
+			break;
+		}
+	}
+	return ret;
+}
+int main()
+{
+	int arr[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	int key = 0;
+	scanf("%d", &key);
+	int ret = -2;
+	int length = sizeof(arr) / sizeof(arr[0]);
+	ret=BinarySearch(arr, key,length);
+	if (ret == -1)
+	{
+		printf("No Find\n");
+	}
+	else
+	{
+		printf("%d\n", ret);
+	}
+	
+	system("pause");
+	return 0;
+}
 //int my_strcmp(const char *dest, const char *src)
 //{
 //	assert(dest != NULL);
@@ -29,13 +74,13 @@
 
 
 
-int main()
-{
-	int *p[] = {0};
-
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	int *p[] = {0};
+//
+//	system("pause");
+//	return 0;
+//}
 //Ä£ÄâÊµÏÖmy_strcat
 //char *my_strcat(char *dest, const char *src)
 //{
