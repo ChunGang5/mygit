@@ -4,7 +4,6 @@
 #include <pthread.h>
 #include "Protocol.hpp"
 #include "Util.hpp"
-
 using namespace std;
 
 class Sock{
@@ -55,31 +54,30 @@ class Sock{
 			int fd = accept(sock, (struct sockaddr*)&peer, &len);
 			if(fd < 0)
 			{
-				ceer << "accept error!" <<endl;
+				cerr << "accept error!" <<endl;
 				exit(5);
 				return -1;
 			}
 			else
 			{
 				cout <<"get a new link......" << endl;
-				return fd;	
+				return fd;
 			}
 		}
-		
 		~Sock()
 		{
-			if(Sock >= 0)
+			if(sock >= 0)
 			{
-				close(Sock);
+				close(sock);
 			}
 		}
 };
-
+#define DEFAULT_PORT 8080
 class HttpServer{
 	private:
 		Sock sock;
 	public:
-		HttpServer(int port = DEFAULT_PORT):sock(port);
+		HttpServer(int port = DEFAULT_PORT):sock(port)
 		{}
 		void InitHttpServer()
 		{
@@ -96,9 +94,9 @@ class HttpServer{
 				{
 					pthread_t tid;
 					int *p = new int(sock_);
-					pthread_creat(&tid, nullptr,Entry:: HandlerRequest, p);
+					pthread_create(&tid, nullptr,Entry:: HandlerRequest, p);
 
 				}
 			}
 		}
-}
+};

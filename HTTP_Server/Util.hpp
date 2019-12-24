@@ -9,19 +9,19 @@ class Util{
 	public:
 		static void StringToLower(string &s)
 		{
-			transform(s.begin(),s.end(),s.begin(),tolower);
+			transform(s.begin(),s.end(),s.begin(),::tolower);
 		}
 		static void StringToUpper(string &s)
 		{
-			transform(s.begin(),s.end(),s.begin(),toupper);
+			transform(s.begin(),s.end(),s.begin(),::toupper);
 		}
-		static void TransfromToVector(string &s,vector &v)
+		static void TransfromToVector(string &s,vector<string> &v)
 		{
 			size_t start = 0;
 			while(1)
 			{
-				size_t pos = s.find(start,"\n");
-				if(string::npos == pos)	//npos是出错的时候返回的一个size_t的数字	
+				size_t pos = s.find("\n",start);
+				if(string::npos == pos)	//npos是出错的时候返回的一个size_t的数字
 				{
 					break;
 				}
@@ -32,16 +32,16 @@ class Util{
 		}
 		static void MakeKV(string s,string &key,string &value)
 		{
-			size_t pos=s.find(0,": ");
+			size_t pos=s.find(": ",0);
 			if(string::npos == pos)
 			{
-				break;
+				return;
 			}
 			key=s.substr(0,pos);
 			value=s.substr(pos+2);
-			
+
 		}
-		int StringToInt(string s)
+		static int StringToInt(string s)
 		{
 			stringstream ss(s);
 			int result=0;

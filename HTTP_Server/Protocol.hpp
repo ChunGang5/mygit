@@ -11,6 +11,7 @@
 #include <vector>
 #include <unistd.h>
 #include <unordered_map>	//采用哈希
+#include <utility>
 #include "Util.hpp"
 using namespace std;
 
@@ -24,7 +25,7 @@ class HttpRequest{
 		string method;
 		string uri;
 		string version;
-		unordered_map<string,sring>header_kv;
+		unordered_map<string,string>header_kv;
 
 	public:
 		HttpRequest():request_blank("\n")
@@ -48,7 +49,7 @@ class HttpRequest{
 			//GET  or POST
 			if(method != "GET" && method != "POST")
 			{
-				return false;	
+				return false;
 			}
 			return true;
 			}
@@ -73,7 +74,8 @@ class HttpRequest{
 				string k;
 				string v;
 				Util::MakeKV(*it,k,v);
-				header_kv.insert(make_pair<string,string>(k,v));
+				//header_kv.insert(make_pair<string,string>(k,v));
+                header_kv.insert(make_pair(k,v));
 			}
 		}
 		bool IsNeedRecv()
@@ -85,13 +87,13 @@ class HttpRequest{
 			auto it = header_kv.find("Content-Length");
 			if(it==header_kv.end())
 			{
-				return -1;	
+				return -1;
 			}
 			return Util::StringToInt(it->second);
 		}
 		~HttpRequest()
 		{
-				
+
 		}
 };
 
@@ -108,7 +110,7 @@ class HttpResponse{
 		~HttpResponse()
 		{
 			}
-	
+
 };
 
 class EndPoint{	//远端
@@ -117,8 +119,8 @@ class EndPoint{	//远端
 	public:
 		EndPoint(int sock)
 		{
-			
-			}
+
+		}
 		int RecvLine(string &line)	//\n \r \r\n  ->\n
 		{
 			char c = 'X';
@@ -136,7 +138,7 @@ class EndPoint{	//远端
 								}
 							else
 							{//\r
-								c == '\n';	
+								c == '\n';
 								}
 						}
 						else
@@ -152,44 +154,45 @@ class EndPoint{	//远端
 					line.push_back(c);
 
 				}
-				
-				
+
+
 			}
 			return line.size();
-			
-			}
+
+		}
 		void RecvRequestLine(HttpRequest *rq)
 		{
-			RecvLine(rq -> GetRequestLine) //\n \r \r\n -> \n
-			
-			}
+			RecvLine(rq -> GetRequestLine()); //\n \r \r\n -> \n
+
+		}
 		void RecvRequestHeader(HttpRequest *rq)
 		{
 			string &rh = rq->GetRequestHeader();
 			do{
-			string line = "";
-			RecvLine(line);
-			if(line == '\n')
-			{
-				break;
+			    string line = "";
+			    RecvLine(line);
+			    if(line == "\n")
+			    {
+				    break;
 				}
-			rh += line;
-			}while(1)
+			    rh += line;
+			}while(1);
 		}
 		void RecvRequestBody(HttpRequest *rq)
 		{//读request
 			int len = rq->GetContentLength();
 			string &body = rq->GetRequestBody();
+            char c;
 			while(len--)
 			{
 				if(recv(sock,&c,1,0)>0)
 				{
-					body.push_back(c);	
+					body.push_back(c);
 				}
 
 			}
 		}
-		~EndPoint(int sock_)
+		~EndPoint()
 		{
 			}
 };
@@ -198,11 +201,11 @@ class Entry{
 	public:
 	    static void *HandlerRequest(void *args)	//处理请求
 	    {
-		   
+
 		    int *p = (int*)args;
 		    int sock = *p;
 		    EndPoint *ep = new EndPoint(sock);
-		    HttpRequset *rq = new HttpRequest();
+		    HttpRequest *rq = new HttpRequest();
 		    HttpResponse *req = new HttpResponse();
 			//1.通过endpoint读取请求，并构建request
 			//2.分析request，得出具体细节
@@ -219,7 +222,7 @@ class Entry{
 		    {
 			    //非法方法
 			goto end;
-			    
+
 			}
 			ep->RecvRequestHeader(rq);
 			rq->RequestHeaderParse();
@@ -229,10 +232,10 @@ class Entry{
 
 			}
 
-end:			
+end:
 		    delete rq;
 		    delete req;
 		    delete ep;
 		    delete p;
 		    }
-}
+};

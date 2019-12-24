@@ -4,7 +4,7 @@ using namespace std;
 
 static void Usage(string proc)
 {
-	cout <<"Usage" << porc << "port"<<endl;
+	cout <<"Usage: " << proc << "port"<<endl;
 	}
 int main(int argc,char *argv[])
 {
