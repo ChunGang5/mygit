@@ -88,3 +88,18 @@ using namespace std;
 //	cin.get();
 //	return 0;
 //}
+
+int main()
+{
+	float hats, heads;
+	cout.setf(ios_base::fixed, ios_base::floatfield);	//迫使输出以定点表示法，防止程序将较大的值转换为E表示法
+	cin >> hats;
+	cin >> heads;
+	cin.get();
+	cout << hats + heads << endl;
+	cout << hats - heads << endl;
+	cout << hats * heads << endl;
+	cout << hats / heads << endl;
+	cin.get();
+	return 0;
+}
