@@ -1,8 +1,9 @@
-﻿生成启动时间为 2020/2/9 23:42:42。
+﻿生成启动时间为 2020/2/10 23:35:58。
      1>项目“F:\C语言\Code\C++4\C++4\C++4.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         F:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         F:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
          test.cpp
+     1>f:\c语言\code\c++4\c++4\test.cpp(258): warning C4101: “arr1”: 未引用的局部变量
        Link:
          F:\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\C语言\Code\C++4\Debug\C++4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\C语言\Code\C++4\Debug\C++4.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\C语言\Code\C++4\Debug\C++4.lib" /MACHINE:X86 Debug\test.obj
          C++4.vcxproj -> F:\C语言\Code\C++4\Debug\C++4.exe
@@ -10,4 +11,4 @@
 
 生成成功。
 
-已用时间 00:00:00.78
+已用时间 00:00:00.65
