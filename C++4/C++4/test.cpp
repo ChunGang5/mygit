@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include<cstring>
+#include<vector>
+#include<array>
 using namespace std;
 
 //int main()
@@ -274,7 +276,162 @@ using namespace std;
 //	return 0;
 //}
 
+//int main()
+//{
+//	int arr1[3] = { 0, 1, 2 };
+//	int *pt = arr1;
+//	cout << pt[1] << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//int main()
+//{
+//	char animal[20] = "bear";
+//	const char *brid = "wren";
+//	char *ps;
+//
+//	cout << animal << " and " << brid << endl;
+//	cin >> animal;
+//	cin.get();
+//	ps = animal;
+//	cout << ps << endl;
+//	cout << animal << " at " << (int*)animal << endl;
+//
+//	ps = new char[strlen(animal) + 1];
+//	strcpy(ps, animal);
+//	cout << animal << (int*)animal << endl;
+//	cout << ps << (int*)ps << endl;
+//	delete[] ps;
+//	cin.get();
+//	return 0;
+//}
+
+//struct inflatable
+//{
+//	char name[20];
+//	float vplume;
+//	double price;
+//};
+//int main()
+//{
+//	/*inflatable st =
+//	{
+//		"chengang",
+//		45.125,
+//		85.14
+//	};
+//	cout << st.name << endl;
+//	cout << st.name << endl;*/
+//
+//	inflatable *ps = new inflatable;
+//	cin.get(ps->name, 20);
+//	cin.get();
+//	cin >> (*ps).price;
+//	cin >> (*ps).vplume;
+//	cin.get();
+//	cout << ps->name << endl;
+//	cin.get();
+//	delete ps;
+//	return 0;
+//}
+
+//char *getname(void);
+//char *getname()
+//{
+//	char temp[80];
+//	cout << "Enter last name:";
+//	cin >> temp;
+//	char *pn = new char[strlen(temp) + 1];
+//	strcpy(pn, temp);
+//	return pn;
+//}
+//
+//int main()
+//{
+//	char *name;
+//	name = getname();
+//	cout << name << " at " << (int*)name << endl;
+//	delete[] name;
+//
+//	name = getname();
+//	cin.get();
+//	cout << name << " at " << (int*)name << endl;
+//	cin.get();
+//	delete[] name;
+//	return 0;
+//}
+
+//struct inflatable
+//{
+//	char name[20];
+//	float vplume;
+//	double price;
+//};
+//
+//int main()
+//{
+//	inflatable s1;
+//	s1.price = 15;
+//	cout << s1.price << endl;
+//	cin >> s1.name;
+//	cin.get();
+//	cout << s1.name << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//struct antarctica_years_end
+//{
+//	int year;
+//};
+//
+//int main()
+//{
+//	antarctica_years_end s01, s02, s03;
+//	s01.year = 1998;
+//	antarctica_years_end *pa = &s02;
+//	pa->year = 1999;
+//	antarctica_years_end trio[3];
+//	trio[0].year = 2003;
+//	cout << trio[0].year << endl;
+//
+//	const antarctica_years_end *arp[3] = { &s01, &s02, &s03 };
+//	cout << arp[1]->year << endl;
+//
+//	auto ppd = arp;
+//	cout << (*ppd)->year << endl;
+//	cout << (*(ppd + 1))->year << endl;
+//	cin.get();
+//	return 0;
+//
+//}
+
+//int main()
+//{
+//	double a1[4] = { 1.2, 2.4, 3.6, 4.8 };
+//	vector<double> a2(4);
+//	a2[0] = 1.0 / 3.0;
+//	a2[1] = 1.0 / 5.0;
+//	a2[2] = 1.0 / 7.0;
+//	a2[3] = 1.0 / 9.0;
+//
+//	array<double, 4> a3 = { 3.14, 2.72, 1.62, 1.41 };
+//	array<double, 4> a4;
+//	a4 = a3;
+//	cout << a1[0] << endl;
+//	cout << a1[1] << endl;
+//	cout << a1[2] << endl;
+//	cout << a1[3] << endl;
+//	a1[-2] = 20.2;
+//	cin.get();
+//	return 0;
+//}
+
+struct feesh
 int main()
 {
+	char s1[] = "cnajn";
+	string s2 = "fghj";
 
 }
