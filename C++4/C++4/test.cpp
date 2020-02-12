@@ -33,10 +33,11 @@ using namespace std;
 //	cout << "What year was your house built?\n";
 //	int year;
 //	cin >> year;
-//	cin.get();
+//	/*cin.get();*/
 //	cout << "What is its stream address?\n";
 //	char address[80];
-//	cin.getline(address, 80);
+//	/*cin.getline(address, 80);*/
+//	cin >> address;
 //	cout << "Year built: " << year << endl;
 //	cout << "Address: " << address << endl;
 //	cin.get();
@@ -428,10 +429,173 @@ using namespace std;
 //	return 0;
 //}
 
-struct feesh
-int main()
-{
-	char s1[] = "cnajn";
-	string s2 = "fghj";
+//struct feesh
+//int main()
+//{
+//	char s1[] = "cnajn";
+//	string s2 = "fghj";
+//
+//}
 
-}
+//Ex4.1
+//struct display
+//{
+//	char firstname[20];
+//	char lastname[20];
+//	int grade;
+//	int age;
+//};
+//int main()
+//{
+//	display *pt = new display;
+//	cout << "what is you first name? ";
+//	cin.getline(pt->firstname, 20);
+//	cout << "What is your last name? ";
+//	cin.get(pt->lastname, 20);
+//	
+//	cout << "What letter grade do you deserve? ";
+//	cin >> pt->grade;
+//	cout << "What is your age? ";
+//	cin >> pt->age;
+//	cin.get();
+//	cout << "Grade: " <<pt->grade<< endl;
+//	cout << "Age: " << pt->age << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.2
+//int main()
+//{
+//	string name;
+//	string dessert;
+//
+//	cout << "Enter your name:\n";
+//	cin >> name;
+//	cout << "Enter your favorite dessert:\n";
+//	cin >> dessert;
+//	cin.get();
+//	cout << "I have some delicious " << dessert;
+//	cout << " for you, " << name << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.4
+//int main()
+//{
+//	const int Size = 20;
+//	char first_name[Size];
+//	char last_name[Size];
+//	char name[Size * 2 + 1];
+//
+//	cout << "Enter you first name:";
+//	cin.getline(first_name, Size);
+//	cout << "Enter your last name:";
+//	cin.getline(last_name, Size);
+//	strcpy(name, last_name);
+//	strcat(name, ",");
+//	strcat(name, first_name);
+//	cout << "Here's the information in a single string:" << name << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.5
+struct CandyBar
+{
+	char kind[20];
+	double weigth;
+	int kcal;
+};
+
+//int main()
+//{
+//	CandyBar snack =
+//	{
+//		"Mocha Munch",
+//		2.3,
+//		350
+//	};
+//	cout << snack.kcal << endl;
+//	cout << snack.kind << endl;
+//	cout << snack.weigth << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.6
+//int main()
+//{
+//	CandyBar a[3];
+//	a[0] = { "vbnm", 5.2, 46 };
+//	cout << a[0].kcal << endl;
+//	cout << a[0].kind << endl;
+//	cout <<a[0].weigth << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.7
+struct Pizza
+{
+	char name[20];
+	double calibre;
+	double weight;
+};
+
+//int main()
+//{
+//	Pizza pie;
+//	cout << "name:";
+//	cin.getline(pie.name, 20);
+//	cout << "calibre:";
+//	cin >> pie.calibre;
+//	cout << "weigth:";
+//	cin >> pie.weight;
+//	cin.get();
+//	cout << "name:" << pie.name << endl;
+//	cout << "calibre:" << pie.calibre << endl;
+//	cout << "weigth:" << pie.weight << endl;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.8
+//int main()
+//{
+//	Pizza *pt = new Pizza;
+//	cout << "calibre:";
+//	cin >> pt->calibre;
+//	cout << "name";
+//	cin >> (*pt).name;
+//	cin.get();
+//	cout << "name:" << pt->name;
+//	cin.get();
+//	return 0;
+//}
+
+//Ex4.9
+//int main()
+//{
+//	CandyBar *pt = new CandyBar[3];
+//	cin >> (*(pt + 1)).kcal;
+//	
+//}
+
+//Ex4.10
+//int main()
+//{
+//	const int Size = 3;
+//	array<double, Size> a;
+//	vector<int> a2(Size);
+//
+//	cin >> a[0];
+//	cin >> a[1];
+//	cin >> a[2];
+//	cin.get();
+//	cout << "and:" << a[0] + a[1] + a[2] << endl;
+//	cout << "avergae:" << (a[0] + a[1] + a[2]) / 3 << endl;
+//	cin.get();
+//	return 0;
+//}
