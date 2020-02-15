@@ -648,3 +648,8 @@ using namespace std;
 //	return 0;
 //}
 
+//Ex6.9
+int main()
+{
+
+}
