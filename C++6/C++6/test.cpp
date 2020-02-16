@@ -649,7 +649,141 @@ using namespace std;
 //}
 
 //Ex6.9
+struct People
+{
+	string name;
+	double meony;
+};
+
 int main()
 {
-
+	ifstream File;
+	char filename[20];
+	int num = 0;
+	cout << "Enter filename:";
+	cin.getline(filename, 20);
+	File.open(filename);
+	if (!File.is_open())
+	{
+		cout << "error!" << endl;
+		exit(EXIT_FAILURE);
+	}
+	File >> num;
+	File.get();		//易错点，别忘了是文件输入流而不是控制台输入流
+	People *pt = new People[num];
+	for (int i = 0; i < num; i++)
+	{
+		getline(File, pt[i].name);
+		File >> pt[i].meony;
+		File.get();
+	}
+	int temp = 0;
+	cout << "Grand Patrons:\n";
+	for (int i = 0; i < num; i++)
+	{
+		if (pt[i].meony>10000)
+		{
+			cout << pt[i].name << endl;
+			cout << pt[i].meony << endl;
+			temp++;
+		}
+		
+	}
+	if (temp == 0)
+		{
+			cout << "none" << endl;
+		}
+	temp = 0;
+	cout << "Others Patrons:\n";
+	for (int i = 0; i < num; i++)
+	{
+		if (pt[i].meony<=10000)
+		{
+			cout << pt[i].name << endl;
+			cout << pt[i].meony << endl;
+			temp++;
+		}
+		
+	}
+	if (temp == 0)
+		{
+			cout << "none" << endl;
+		}
+	cin.get();
+	return 0;
 }
+
+//struct pat_info
+//{
+//	string name;
+//	double amount;
+//};
+//void p6_9(void)
+//{
+//	unsigned int contributors = 0;
+//	unsigned int tmp = 0;
+//	string FileName;
+//	ifstream inFile;
+//
+//
+//	cout << "Enter the file name:";
+//	getline(cin, FileName);
+//	inFile.open(FileName.c_str());
+//	inFile >> contributors;
+//	inFile.get();
+//
+//	struct pat_info *pContributors = new struct pat_info[contributors];
+//
+//	for (size_t i = 0; i < contributors; i++)
+//	{
+//		//      cout << "Enter the name of " << i + 1 << " contributor: ";
+//		getline(inFile, pContributors[i].name);
+//
+//		//      cout << "Enter the amount of donation: ";
+//		inFile >> pContributors[i].amount;
+//		inFile.get();
+//	}
+//
+//	cout << "Grand Pators:" << endl;
+//	for (size_t i = 0; i < contributors; i++)
+//	{
+//		if (pContributors[i].amount > 10000)
+//		{
+//			cout << "Contributor name: " << pContributors[i].name << endl;
+//			cout << "Contrubutor amount: " << pContributors[i].amount << endl;
+//			tmp++;
+//		}
+//	}
+//	if (tmp == 0)
+//	{
+//		cout << "none" << endl;
+//	}
+//
+//	tmp = 0;
+//	cout << "Pators:" << endl;
+//	for (size_t i = 0; i < contributors; i++)
+//	{
+//		if (pContributors[i].amount < 10000)
+//		{
+//			cout << "Contributor name: " << pContributors[i].name << endl;
+//			cout << "Contrubutor amount: " << pContributors[i].amount << endl;
+//			tmp++;
+//		}
+//	}
+//	if (tmp == 0)
+//	{
+//		cout << "none" << endl;
+//	}
+//
+//	return;
+//}
+//
+//
+//int main(int argc, char **argv)
+//{
+//	p6_9();
+//
+//	while (cin.get());
+//
+//	return 0;
+//}
