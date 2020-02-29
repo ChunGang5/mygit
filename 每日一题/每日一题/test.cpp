@@ -393,3 +393,48 @@ int main()
 	return 0;
 }
 */
+
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	string s1, s2;
+//	vector<char> str;
+//	int count[256] = { 0 };
+//
+//	getline(cin, s1);
+//	getline(cin, s2);
+//	for (int i = 0; i < s2.size(); i++)
+//	{
+//		count[s2[i]] = 1;
+//	}
+//	for (int i = 0; i < s1.size(); i++)
+//	{
+//		if (count[s1[i]] == 1)
+//		{
+//			s1 = s1.erase(i, 1);
+//			i = i - 1;
+//		}
+//	}
+//	cout << s1 << endl;
+//	return 0;
+//}
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+const int N = 10;
+int main()
+{
+	vector<int> arr(N);
+	for (int i = 0; i < N; i++)
+	{
+		cin >> arr[N];
+	}
+
+}
