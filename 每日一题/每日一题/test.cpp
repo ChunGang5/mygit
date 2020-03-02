@@ -424,17 +424,59 @@ int main()
 //	return 0;
 //}
 
-#include<iostream>
-#include<vector>
-using namespace std;
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//
+//const int N = 10;
+//int main()
+//{
+//	vector<int> arr(N);
+//	for (int i = 0; i < N; i++)
+//	{
+//		cin >> arr[N];
+//	}
+//
+//}
 
-const int N = 10;
-int main()
-{
-	vector<int> arr(N);
-	for (int i = 0; i < N; i++)
-	{
-		cin >> arr[N];
-	}
-
-}
+//#include <iostream>
+//#include <math.h>
+//using namespace std;
+//
+//int main()
+//{
+//	int num;
+//	while (cin >> num)
+//	{
+//		cout << num << " = ";
+//		int* num1 = new int[1000];
+//		int j = 0;
+//		for (int i = 2; i <= sqrt(num); i++)
+//		{
+//			while (num % i == 0)
+//			{
+//				if (num != 1)
+//				{
+//					num1[j] = i;
+//					j++;
+//					num /= i;
+//				}
+//			}
+//		}
+//		if (num != 1)
+//		{
+//			num1[j] = num;
+//			j++;
+//		}
+//		for (int k = 0; k < j; k++)
+//		{
+//			cout << num1[k];
+//			if (k + 1 < j)
+//			{
+//				cout << " * ";
+//			}
+//		}
+//		cout << endl;
+//	}
+//	return 0;
+//}
