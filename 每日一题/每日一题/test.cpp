@@ -481,39 +481,167 @@ int main()
 //	return 0;
 //}
 
-#include <iostream>
-#include<string>
+//#include <iostream>
+//#include<string>
+//
+//using namespace std;
+//int main()
+//{
+//	string s;
+//	string t;
+//	while (cin>>s)
+//	{
+//	cin >> t;
+//	int count = 0;
+//	int start = 0;
+//	int j = 0;
+//	for (int i = 0; i < s.size(); ++i)
+//	{
+//		start = i;
+//		for (j = 0; j < t.size(); ++j)
+//		{
+//			if (s[i] == t[j])
+//				++i;
+//			else
+//				break;
+//		}
+//		if (j == t.size())
+//		{
+//			++count;
+//			i = i - 1;
+//		}
+//		else
+//			i = start;
+//	}
+//	cout << count << endl;
+//	}
+//return 0;
+//}
+//
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	vector<int> n(100);
+//	n = { 1, 2 };
+//	for (int i = 2; i < 100; i++)
+//	{
+//		n[i] = n[i - 1] + n[i - 2];
+//	}
+//	int day=0;
+//	while (cin >> day)
+//	{
+//		cout << n[day - 1] << endl;
+//	}
+//	return 0;
+//}
 
-using namespace std;
-int main()
-{
-	string s;
-	string t;
-	while (cin>>s)
-	{
-	cin >> t;
-	int count = 0;
-	int start = 0;
-	int j = 0;
-	for (int i = 0; i < s.size(); ++i)
-	{
-		start = i;
-		for (j = 0; j < t.size(); ++j)
-		{
-			if (s[i] == t[j])
-				++i;
-			else
-				break;
-		}
-		if (j == t.size())
-		{
-			++count;
-			i = i - 1;
-		}
-		else
-			i = start;
-	}
-	cout << count << endl;
-	}
-return 0;
-}
+//#include<iostream>
+//#include<string>
+//using namespace std;
+//int main()
+//{
+//	int n;
+//	while (cin >> n)
+//	{
+//		cin.get();
+//		string name;
+//		for (int i = 0; i<n; i++)
+//		{
+//			getline(cin, name);
+//			if (i != n - 1)
+//			{
+//				if (name.find(',') != -1 || name.find(' ') != -1)
+//				{
+//					cout << '\"' << name << '\"' << ',' << ' ';
+//				}
+//				else
+//				{
+//					cout << name << ',' << ' ';
+//				}
+//			}
+//			else
+//			{
+//				if (name.find(',') != -1 || name.find(' ') != -1)
+//				{
+//					cout << '\"' << name << '\"' << endl;
+//				}
+//				else
+//				{
+//					cout << name << endl;
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+//³­ËÍÁÐ±í
+//#include<iostream>
+//#include<string>
+//#include <algorithm>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	string line;
+//	while (getline(cin, line))
+//	{
+//		vector<string> names;
+//		size_t pos = 0;
+//		while (pos<line.length())
+//		{
+//			if (line[pos] == '\"')
+//			{
+//				size_t end = line.find('\"',pos+1);
+//				names.push_back(line.substr(pos + 1, end - pos - 1));
+//				pos = end + 2;
+//			}
+//			else
+//			{
+//				size_t end = line.find(',', pos + 1);
+//				if (end == -1)
+//				{
+//					names.push_back(line.substr(pos, line.size() - pos));
+//					break;
+//
+//				}
+//				names.push_back(line.substr(pos, end - pos));
+//				pos = end + 1;
+//			}
+//		}
+//		getline(cin, line);
+//		if (names.end() == find(names.begin(), names.end(), line))
+//		{
+//			cout << "Important!" << endl;
+//		}
+//		else
+//		{
+//			cout << "Ignore" << endl;
+//		}
+//	}
+//	return 0;
+//}
+
+
+//´íÅÅËã·¨
+//#include<iostream>
+//#include<cstdlib>
+//using namespace std;
+//int main()
+//{
+//	long long n[20] = { 0, 0, 1 };
+//	long long k[20] = { 0, 1, 2 };
+//	for (int i = 3; i<20; i++)
+//	{
+//		n[i] = (i - 1)*(n[i - 1] + n[i - 2]);
+//		k[i] = i*k[i - 1];
+//	}
+//	int j = 0;
+//	while (cin >> j)
+//	{
+//		printf("%0.2f%c\n", 1.0*n[j] / k[j] * 100, '%');
+//	}
+//	return 0;
+//}
