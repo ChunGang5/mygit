@@ -273,3 +273,196 @@ using namespace std;
 //	}
 //	return 0;
 //}
+
+//class Time
+//{
+//public:
+//	Time(int hour = 0)
+//		:_hour(hour)
+//	{
+//		cout << "Time()" << endl;
+//	}
+//private:
+//	int _hour;
+//};
+//class Date
+//{
+//public:
+//	Date(int day)
+//	{}
+//private:
+//	int _day;
+//	Time _t;
+//};
+//int main()
+//{
+//	Date d(1);
+//	cin.get();
+//	return 0;
+//}
+
+//class Date
+//{
+//public:
+//	Date(int year)
+//		:_year(year)
+//	{}
+//	explicit Date(int year)
+//		:_year(year)
+//	{}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//void TestDate()
+//{
+//	Date d1(2018);
+//	// 用一个整形变量给日期类型对象赋值
+//	// 实际编译器背后会用2019构造一个无名对象，最后用无名对象给d1对象进行赋值
+//	d1 = 2019;
+//}
+//int main()
+//{
+//	TestDate();
+//	cin.get();
+//	return 0;
+//}
+
+//class Date
+//{
+//	friend ostream& operator<<(ostream& _cout, const Date& d);
+//	friend istream& operator>>(istream& _cin, const Date& d);
+//public:
+//	Date(int year, int month, int day)
+//		: _year(year)
+//		, _month(month)
+//		, _day(day)
+//	{}
+//private :
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//ostream& operator<<(ostream& _cout, const Date& d)
+//{
+//	_cout << d._year << "-" << d._month << "-" << d._day;
+//	return _cout;
+//}
+////istream& operator>>(istream& _cin, const Date& d)
+////{
+////	_cin >> d._year;
+////	_cin >> d._month;
+////	_cin >> d._day;
+////	return _cin;
+////}
+//int main()
+//{
+//	Date d(1996,9,15);
+//	cin >> d;
+//	cout << d << endl;
+//	return 0;
+//}
+//class A
+//{
+//private:
+//	static int k;
+//	int h;
+//public:
+//	class B
+//	{
+//	public:
+//		void foo(const A& a)
+//		{
+//			cout << k << endl;//OK
+//			cout << a.h << endl;//OK
+//		}
+//	};
+//};
+//int A::k = 1;
+//int main()
+//{
+//	A::B b;
+//	b.foo(A());
+//	cin.get();
+//	return 0;
+//}
+
+
+//#include<iostream>
+//using namespace std;
+//class Day
+//{
+//public:
+//	Day(int year, int month, int day)
+//		:_year(year)
+//		, _month(month)
+//		, _day(day)
+//	{}
+//	int Description(int _year,int _month,int _day)
+//	{
+//		
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+
+#include<iostream>
+using namespace std;
+int iConverDateToDay(int year, int month, int day)
+{
+	if (year <= 0 || month <= 0 || day <= 0 || month>12 || day>31)
+	{
+		return -1;
+	}
+	int lemp[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int Nolemp[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	bool flag;
+	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+	{
+		flag = true;
+	}
+	else
+	{
+		flag = false;
+	}
+	if (flag)
+	{
+		if (day>lemp[month - 1])
+		{
+			return -1;
+		}
+	}
+	else
+	{
+		if (day>Nolemp[month - 1])
+		{
+			return -1;
+		}
+	}
+	int temp = 0;
+	for (int i = 0; i<month - 1; i++)
+	{
+		if (flag)
+		{
+			temp += lemp[i];
+		}
+		else
+			temp += Nolemp[i];
+	}
+	return temp + day;
+}
+int main()
+{
+	int year, month, day;
+	while (cin >> year >> month >> day)
+	{
+		cin.get();
+		cout << iConverDateToDay(year, month, day) << endl;
+		cin.get();
+		return 0;
+	}
+	return 0;
+}
