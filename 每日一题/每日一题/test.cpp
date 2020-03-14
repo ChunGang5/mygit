@@ -712,46 +712,162 @@ int main()
 //}
 
 //求最长公共子序列,动态规划
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//
+//int main()
+//{
+//	string s1, s2;
+//	while (cin >> s1 >> s2)
+//	{
+//		int len1 = s1.length();
+//		int len2 = s2.length();
+//		vector<vector<int>> dp(len1, vector<int>(len2, 0));
+//		dp[0][0] = (s1[0] == s2[0]) ? 1 : 0;
+//		for (int i = 1; i < len1; i++)
+//		{
+//			dp[i][0] = (s1[i] == s2[0]) ? 1 : 0;
+//			dp[i][0] = max(dp[i - 1][0], dp[i][0]);
+//		}
+//		for (int j = 1; j < len1; j++)
+//		{
+//			dp[0][j] = (s1[0] == s2[j]) ? 1 : 0;
+//			dp[0][j] = max(dp[0][j - 1], dp[0][j]);
+//		}
+//		for (int i = 1; i < len1; i++)
+//		{
+//			for (int j = 1; j < len2; j++)
+//			{
+//				if (s1[i] == s2[j])
+//				{
+//					dp[i][j] = dp[i - 1][j - 1] + 1;
+//				}
+//				else
+//				{
+//					dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+//				}
+//			}
+//		}
+//		cout << dp[len1 - 1][len2 - 1] << endl;
+//	}
+//	return 0;
+//}
+
+//最长上升子序列
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//int main()
+//{
+//	int n;
+//	while (cin >> n)
+//	{
+//		vector<int> num(n, 0);
+//		for (int i = 0; i<n; i++)
+//		{
+//			cin >> num[i];
+//		}
+//		vector<int> Max_Num(n, 1);
+//		int count = 1;
+//		for (int i = 1; i<n; i++)    //划分问题为子问题
+//		{
+//			for (int j = 0; j<i; j++)    //判断i位置的数字比之前的都大；
+//			{
+//				if (num[i]>num[j])
+//				{
+//					Max_Num[i] = max(Max_Num[i], Max_Num[j] + 1);
+//				}
+//			}
+//			count = max(count, Max_Num[i]);
+//		}
+//		cout << Max_Num[n - 1] << endl;
+//		cout << count << endl;
+//	}
+//	return 0;
+//}
+
+//链接：https://www.nowcoder.com/questionTerminal/1a92fbc771a54feb9eb5bd9b3ff2d0a9
 #include<iostream>
 #include<string>
-#include<vector>
-#include<algorithm>
+#include<stack>
 using namespace std;
 
 int main()
 {
-	string s1, s2;
-	while (cin >> s1 >> s2)
+	int n;
+	while (cin >> n)
 	{
-		int len1 = s1.length();
-		int len2 = s2.length();
-		vector<vector<int>> dp(len1, vector<int>(len2, 0));
-		dp[0][0] = (s1[0] == s2[0]) ? 1 : 0;
-		for (int i = 1; i < len1; i++)
+		getchar();
+		stack<int> st;
+		for (size_t i = 0; i<n; i++)
 		{
-			dp[i][0] = (s1[i] == s2[0]) ? 1 : 0;
-			dp[i][0] = max(dp[i - 1][0], dp[i][0]);
-		}
-		for (int j = 1; j < len1; j++)
-		{
-			dp[0][j] = (s1[0] == s2[j]) ? 1 : 0;
-			dp[0][j] = max(dp[0][j - 1], dp[0][j]);
-		}
-		for (int i = 1; i < len1; i++)
-		{
-			for (int j = 1; j < len2; j++)
-			{
-				if (s1[i] == s2[j])
+			int sum = 0;
+			string ch;//运用string而不是用char的原因是，char只能存10以下的字符，当输入的字符
+			//大于10，就会出现错误
+			cin >> ch;
+			if (ch[0] == '+' || ch[0] == '-' || ch[0] == '*' || ch[0] == '/')
+			{链接：https://www.nowcoder.com/questionTerminal/1a92fbc771a54feb9eb5bd9b3ff2d0a9
+来源：牛客网
+
+#include<iostream>
+#include<stack>
+#include<string>
+using namespace std;
+int main(){
+    stack<int> s1;
+    int n;
+    while(cin>>n)
+    {
+        for(int i=0;i<n;i++){
+            string s;
+            cin>>s;
+            if(s[0]>='0'&&s[0]<='9'){
+                int num=0;
+                for(int i=0;i<s.length();i++)
+                    num=num*10+s[i]-'0';
+                s1.push(num);
+            }
+            else{
+                int x=s1.top();s1.pop();
+                int y=s1.top();s1.pop();
+                if(s=="+")       s1.push(x+y);
+                else if(s=="-")  s1.push(y-x);
+                else if(s=="*")  s1.push(x*y);
+                else if(s=="/")  s1.push(y/x);
+            }
+        }
+        cout<<s1.top()<<endl;
+    }
+    return 0;
+}
+				int right = st.top();//栈结构，自底向上，所以取值时，需要先取右操作数
+				st.pop();
+				int left = st.pop;
+				st.pop();
+				if (ch[0] == '+')
+					sum = left + right;
+				if (ch[0] == '-')
+					sum = left - right;
+				if (ch[0] == '*')
+					sum = left*right;
+				if (ch[0] == '/')
 				{
-					dp[i][j] = dp[i - 1][j - 1] + 1;
+					if (right != 0)
+						sum = left / right;
+					else
+						return 0;
 				}
-				else
-				{
-					dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-				}
+				st.push(sum);
 			}
+			else
+				st.push(atoi(ch.c_str()));
 		}
-		cout << dp[len1 - 1][len2 - 1] << endl;
+		cout << (int)st.top() << endl;
 	}
+	cin.get();
 	return 0;
 }
