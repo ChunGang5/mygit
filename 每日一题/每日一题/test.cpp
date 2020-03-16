@@ -791,83 +791,49 @@ int main()
 //}
 
 //链接：https://www.nowcoder.com/questionTerminal/1a92fbc771a54feb9eb5bd9b3ff2d0a9
-#include<iostream>
-#include<string>
-#include<stack>
-using namespace std;
-
-int main()
-{
-	int n;
-	while (cin >> n)
-	{
-		getchar();
-		stack<int> st;
-		for (size_t i = 0; i<n; i++)
-		{
-			int sum = 0;
-			string ch;//运用string而不是用char的原因是，char只能存10以下的字符，当输入的字符
-			//大于10，就会出现错误
-			cin >> ch;
-			if (ch[0] == '+' || ch[0] == '-' || ch[0] == '*' || ch[0] == '/')
-			{链接：https://www.nowcoder.com/questionTerminal/1a92fbc771a54feb9eb5bd9b3ff2d0a9
-来源：牛客网
-
-#include<iostream>
-#include<stack>
-#include<string>
-using namespace std;
-int main(){
-    stack<int> s1;
-    int n;
-    while(cin>>n)
-    {
-        for(int i=0;i<n;i++){
-            string s;
-            cin>>s;
-            if(s[0]>='0'&&s[0]<='9'){
-                int num=0;
-                for(int i=0;i<s.length();i++)
-                    num=num*10+s[i]-'0';
-                s1.push(num);
-            }
-            else{
-                int x=s1.top();s1.pop();
-                int y=s1.top();s1.pop();
-                if(s=="+")       s1.push(x+y);
-                else if(s=="-")  s1.push(y-x);
-                else if(s=="*")  s1.push(x*y);
-                else if(s=="/")  s1.push(y/x);
-            }
-        }
-        cout<<s1.top()<<endl;
-    }
-    return 0;
-}
-				int right = st.top();//栈结构，自底向上，所以取值时，需要先取右操作数
-				st.pop();
-				int left = st.pop;
-				st.pop();
-				if (ch[0] == '+')
-					sum = left + right;
-				if (ch[0] == '-')
-					sum = left - right;
-				if (ch[0] == '*')
-					sum = left*right;
-				if (ch[0] == '/')
-				{
-					if (right != 0)
-						sum = left / right;
-					else
-						return 0;
-				}
-				st.push(sum);
-			}
-			else
-				st.push(atoi(ch.c_str()));
-		}
-		cout << (int)st.top() << endl;
-	}
-	cin.get();
-	return 0;
-}
+//#include<iostream>
+//#include<string>
+//#include<stack>
+//using namespace std;
+//
+//int main()
+//{
+//	int n;
+//	while (cin >> n)
+//	{
+//		getchar();
+//		stack<int> st;
+//		for (size_t i = 0; i<n; i++)
+//		{
+//			int sum = 0;
+//			string ch;//运用string而不是用char的原因是，char只能存10以下的字符，当输入的字符
+//			//大于10，就会出现错误
+//			cin >> ch;
+//			if (ch[0] == '+' || ch[0] == '-' || ch[0] == '*' || ch[0] == '/')
+//				int right = st.top();//栈结构，自底向上，所以取值时，需要先取右操作数
+//				st.pop();
+//				int left = st.pop;
+//				st.pop();
+//				if (ch[0] == '+')
+//					sum = left + right;
+//				if (ch[0] == '-')
+//					sum = left - right;
+//				if (ch[0] == '*')
+//					sum = left*right;
+//				if (ch[0] == '/')
+//				{
+//					if (right != 0)
+//						sum = left / right;
+//					else
+//						return 0;
+//				}
+//				st.push(sum);
+//			}
+//			else
+//				st.push(atoi(ch.c_str()));
+//		}
+//		cout << (int)st.top() << endl;
+//	}
+//	cin.get();
+//	return 0;
+//}
