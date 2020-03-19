@@ -1,0 +1,18 @@
+g++ -o HttpServer HttpServer.cc -std=c++11 -lpthread
+In file included from HttpServer.hpp:5:0,
+                 from HttpServer.cc:2:
+Protocol.hpp: In static member function ‘static void* Entry::HandlerRequest(void*)’:
+Protocol.hpp:208:7: error: ‘HttpRequset’ was not declared in this scope
+       HttpRequset *rq = new HttpRequest();
+       ^
+Protocol.hpp:208:20: error: ‘rq’ was not declared in this scope
+       HttpRequset *rq = new HttpRequest();
+                    ^
+Protocol.hpp:236:14: error: type ‘<type error>’ argument given to ‘delete’, expected pointer
+       delete rq;
+              ^
+HttpServer.cc: In function ‘void Usage(std::string)’:
+HttpServer.cc:7:2: error: ‘icout’ was not declared in this scope
+  icout <<"Usage" << proc << "port"<<endl;
+  ^
+make: *** [HttpServer] Error 1
