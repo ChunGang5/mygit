@@ -185,29 +185,29 @@ using namespace std;
 //	return 0;
 //}
 
-class A
-{
-public:
-	int a;
-};
-class C
-{
-public:
-	int a;
-};
-class B :public A,public C
-{
-public:
-	int c;
-};
-int main()
-{
-	A S;
-	B K;
-	K.A::a = 2;
-
-
-	cout << K.A::a << endl;
-	cin.get();
-	return 0;
-}
+//class A
+//{
+//public:
+//	int a;
+//};
+//class C
+//{
+//public:
+//	int a;
+//};
+//class B :public A,public C
+//{
+//public:
+//	int c;
+//};
+//int main()
+//{
+//	A S;
+//	B K;
+//	K.A::a = 2;
+//
+//
+//	cout << K.A::a << endl;
+//	cin.get();
+//	return 0;
+//}
