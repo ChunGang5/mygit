@@ -211,3 +211,19 @@ using namespace std;
 //	cin.get();
 //	return 0;
 //}
+
+//class A
+//{
+//private:
+//	void test()
+//	{
+//		cout << "good" << endl;
+//
+//	}
+//	int a;
+//};
+//int main()
+//]{
+//	A c;
+//	return 0;
+//}
