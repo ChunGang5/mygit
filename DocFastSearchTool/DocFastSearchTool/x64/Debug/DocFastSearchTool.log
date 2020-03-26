@@ -1,0 +1,18 @@
+﻿生成启动时间为 2020/3/26 12:30:25。
+     1>项目“G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         F:\VS2013\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt DocFastSearchTool.cpp Sysutil.cpp
+         Sysutil.cpp
+     1>Sysutil.cpp(8): warning C4244: “初始化”: 从“intptr_t”转换到“long”，可能丢失数据
+         DocFastSearchTool.cpp
+         正在生成代码...
+       Link:
+         F:\VS2013\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\x64\Debug\DocFastSearchTool.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\x64\Debug\DocFastSearchTool.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\x64\Debug\DocFastSearchTool.lib" /MACHINE:X64 x64\Debug\DocFastSearchTool.obj
+         x64\Debug\Sysutil.obj
+     1>DocFastSearchTool.obj : error LNK2019: 无法解析的外部符号 "void __cdecl DirectoryList(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?DirectoryList@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 "void __cdecl Test_Directory(void)" (?Test_Directory@@YAXXZ) 中被引用
+     1>G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\x64\Debug\DocFastSearchTool.exe : fatal error LNK1120: 1 个无法解析的外部命令
+     1>已完成生成项目“G:\桌面\比特科技\文档快速搜索神器\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.62
