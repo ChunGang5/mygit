@@ -21,6 +21,12 @@
     <ClInclude Include="Sysutil.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ScanManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DocFastSearchTool.cpp">
@@ -28,6 +34,12 @@
     </ClCompile>
     <ClCompile Include="Sysutil.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanManager.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
