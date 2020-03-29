@@ -28,7 +28,7 @@ void DirectoryList(const string& path, vector<string> &subfile, vector<string> &
 		}
 	} while (_findnext(handle,&file)==0);
 
-#if 0
+#if 0 
 	for (auto &e : subfile)
 	{
 		cout << e << endl;
