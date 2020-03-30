@@ -3,9 +3,10 @@
 #pragma once
 #include"Common.h"
 
+
 //日志系统 1:
 #ifndef __TRACE__
-	//#define __TRACE__
+	#define __TRACE__
 #endif
 
 #ifndef __DEBUG__
@@ -58,7 +59,16 @@ inline static void __ErrorDebug(const char* filename, int line, const char* func
 	__TraceDebug(__FILE__, __LINE__, __FUNCTION__, __VA_ARGS__);
 #define ERROR_LOG(...) \
 	__ErrorDebug(__FILE__, __LINE__, __FUNCTION__, __VA_ARGS__);
-
-
+///////////////////////////////////
+//界面模块
+#define WIDTH 120
+#define HEIGHT 30
+void SetCurPos(int x, int y);
+void HideCursor();
+void DrawFrame(char *title);
+void DrawCol(int x, int y);
+void DrawRow(int x, int y);
+void DrawMenu();
+void SystemEnd();
 
 void DirectoryList(const string& path,vector<string> &subfile,vector<string> &subdir);

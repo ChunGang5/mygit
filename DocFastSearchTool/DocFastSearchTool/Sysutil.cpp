@@ -47,3 +47,91 @@ void DirectoryList(const string& path, vector<string> &subfile, vector<string> &
 	_findclose(handle);
 
 }
+
+//界面实现模块
+//设置光标位置
+void SetCurPos(int x, int y)	//x行，y列
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD pos = { y, x };
+	SetConsoleCursorPosition(handle, pos);
+}
+//隐藏光标
+void HideCursor()
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor_info = { 100, 0 };
+	SetConsoleCursorInfo(handle, &cursor_info);
+}
+
+//画界面
+void DrawFrame(char *title)
+{
+	//设置标题
+	char buf[MAX_BUF_SIZE];
+	sprintf(buf, "title %s", title);
+	system(buf);
+	//设置宽高
+	memset(buf, 0, MAX_BUF_SIZE);
+	sprintf(buf, "mode con cols=%d lines=%d", WIDTH, HEIGHT);
+	system(buf);
+	//设置颜色
+
+	system("color F0");
+
+	//设置边框
+	DrawCol(0, 0);	//左边列
+	DrawCol(0, WIDTH - 2);//右边列
+	DrawRow(0, 2);
+	DrawRow(2, 2);
+	DrawRow(4, 2);
+
+	DrawRow(HEIGHT - 6, 2);
+	DrawRow(HEIGHT - 4, 2);
+	DrawRow(HEIGHT - 2, 2);
+}
+
+extern char *title;
+void DrawMenu()		//画菜单
+{
+	//设置标题
+	SetCurPos(1, (WIDTH - 4 - strlen(title)) / 2);
+	printf("%s", title);
+
+	//设置名称 路径
+	SetCurPos(3, 2);
+	printf("%-30s%-85s", "名称", "路径");
+
+	//设置 exit 退出系统
+	SetCurPos(HEIGHT - 3, (WIDTH - 4 - strlen("exit 退出系统 .")) / 2);
+	printf("%s", "exit 退出系统 .");
+
+	//设置 输入:>
+	SetCurPos(HEIGHT - 5, 2);
+	printf("%s", "请输入:>");
+}
+//
+void SystemEnd()
+{
+	SetCurPos(HEIGHT - 1, (WIDTH - 4 - strlen("请按任意键继续 . . .")) / 2);
+}
+
+
+//画列
+void DrawCol(int x, int y)
+{
+	for (int i = 0; i < HEIGHT; ++i)
+	{
+		SetCurPos(x+i, y);
+		printf("||");
+	}
+}
+//画行
+void DrawRow(int x, int y)
+{
+	for (int i = 0; i < WIDTH - 4; ++i)
+	{
+		SetCurPos(x, y+i);
+		printf("=");
+	}
+}
