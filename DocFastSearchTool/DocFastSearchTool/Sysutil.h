@@ -6,7 +6,7 @@
 
 //日志系统 1:
 #ifndef __TRACE__
-	#define __TRACE__
+	//#define __TRACE__
 #endif
 
 #ifndef __DEBUG__
@@ -72,3 +72,12 @@ void DrawMenu();
 void SystemEnd();
 
 void DirectoryList(const string& path,vector<string> &subfile,vector<string> &subdir);
+
+// 汉字转拼音全拼
+/* CSDN：http://blog.csdn.net/csnd_ayo */
+string ChineseConvertPinYinAllSpell(const string& dest_chinese);
+// 汉字转拼音首字母
+string ChineseConvertPinYinInitials(const string& name);
+
+// 颜色高亮显示一段字符串
+void ColourPrintf(const string  &str); 
