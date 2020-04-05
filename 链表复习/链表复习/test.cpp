@@ -1,4 +1,4 @@
-//删除链表滞位val的元素
+//01删除链表滞位val的元素
 /**
 * Definition for singly-linked list.
 * struct ListNode {
@@ -41,7 +41,7 @@
 //};
 
 
-//反转链表，三指针法
+//02反转链表，三指针法
 /**
 * Definition for singly-linked list.
 * struct ListNode {
@@ -65,5 +65,76 @@
 //			cur = next;
 //		}
 //		return prev;
+//	}
+//};
+
+//头插法
+//class Solution {
+//public:
+//	ListNode* reverseList(ListNode* head)
+//	{
+//		ListNode* Newhead = NULL;
+//		ListNode* cur = head;
+//		while (cur)
+//		{
+//			head = cur->next;
+//			cur->next = Newhead;
+//			Newhead = cur;
+//			cur = head;
+//		}
+//		return Newhead;
+//	}
+//};
+
+//03链表中间节点
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+// class Solution {
+// public:
+//     ListNode* middleNode(ListNode* head) 
+//     {
+//         ListNode* fast=head;    //快指针，一次走两步
+//         ListNode* slow=head;    //慢指针，一次走一步
+//         while(fast!=NULL&&fast->next!=NULL)     //先判断fast,如果fast不为NULL才能执行fast->next,不然程序就崩了
+//                                                 //逻辑也不通
+//         {
+//             fast=fast->next->next;
+//             slow=slow->next;
+//         }
+//         return slow;
+//     }
+// };
+
+
+//修改了问题，如果是偶数找出其两个中间数
+//class Solution {
+//public:
+//	ListNode* middleNode(ListNode* head)
+//	{
+//		ListNode* fast = head;    //快指针，一次走两步
+//		ListNode* slow = head;    //慢指针，一次走一步
+//		ListNode* PervSlow = NULL;    //slow指针的前一个
+//		while (fast != NULL&&fast->next != NULL)     //先判断fast,如果fast不为NULL才能执行fast->next,不然程序就崩了
+//			//逻辑也不通
+//		{
+//			fast = fast->next->next;
+//			PervSlow = slow;
+//			slow = slow->next;
+//		}
+//		if (fast == NULL)  //偶数
+//		{
+//			// return PervSlow;
+//			return slow;
+//		}
+//		if (fast->next == NULL)    //奇数
+//		{
+//			return slow;
+//		}
 //	}
 //};
