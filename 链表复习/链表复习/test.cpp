@@ -138,3 +138,69 @@
 //		}
 //	}
 //};
+
+//链表中倒数第k个节点
+/*
+struct ListNode {
+int val;
+struct ListNode *next;
+ListNode(int x) :
+val(x), next(NULL) {
+}
+};*/
+//class Solution {
+//public:
+//	ListNode* FindKthToTail(ListNode* pListHead, unsigned int k)
+//	{
+//		ListNode* cur = pListHead;
+//		int count = 0;
+//		while (cur)
+//		{
+//			count++;
+//			cur = cur->next;
+//		}
+//		int n = count - k;
+//		cur = pListHead;
+//		for (int i = 0; i<n; i++)
+//		{
+//			cur = cur->next;
+//		}
+//		if (k>count)
+//		{
+//			return NULL;
+//		}
+//		else
+//		{
+//			return cur;
+//		}
+//	}
+//};
+
+
+//判断链表是否带环
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	bool hasCycle(ListNode *head)
+//	{
+//		ListNode* fast = head;    //一次走两部
+//		ListNode* slow = head;    //一次走一步
+//		while (fast&&fast->next)     //如果不带环，快指针先走到末尾
+//		{
+//			fast = fast->next->next;
+//			slow = slow->next;
+//			if (slow == fast)
+//			{
+//				return true;
+//			}
+//		}
+//		return false;   //不能放在循环体内判断不相等的情况，不然大部分情况下一定是false
+//	}
+//};
