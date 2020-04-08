@@ -438,3 +438,164 @@ ListNode(int x) : val(x), next(NULL) {}
 //};
 
 
+//求环形链表入环的第一个节点
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	ListNode *detectCycle(ListNode *head)
+//	{
+//		ListNode* fast = head;
+//		ListNode* slow = head;
+//		bool Is = false;
+//		while (fast&&fast->next)
+//		{
+//			fast = fast->next->next;
+//			slow = slow->next;
+//			if (fast == slow)
+//			{
+//				Is = true;
+//				break;
+//			}
+//		}
+//		if (!Is)
+//		{
+//			return NULL;
+//		}
+//		ListNode* PM = slow;
+//		ListNode* PH = head;
+//		while (PH != PM)
+//		{
+//			PH = PH->next;
+//			PM = PM->next;
+//		}
+//		return PM;
+//	}
+//};
+
+
+//对链表进行插入排序
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	ListNode* insertionSortList(ListNode* head)
+//	{
+//		ListNode* cur = head;
+//		ListNode* NewHead = NULL;
+//		while (cur)
+//		{
+//			//拿一个节点
+//			head = cur->next;
+//			ListNode* pos = NewHead;
+//			ListNode* prev = NULL;
+//			while (pos)
+//			{
+//				if (cur->val <  pos->val)
+//				{
+//					break;
+//				}
+//				prev = pos;
+//				pos = pos->next;
+//			}
+//
+//			if (pos == NewHead)
+//			{
+//				cur->next = NewHead;
+//				NewHead = cur;
+//			}
+//			else
+//			{
+//				prev->next = cur;
+//				cur->next = pos;
+//			}
+//			cur = head;
+//		}
+//		return NewHead;
+//	}
+//};
+
+
+//复制带随机指针的链表
+/*
+// Definition for a Node.
+class Node {
+public:
+int val;
+Node* next;
+Node* random;
+
+Node(int _val) {
+val = _val;
+next = NULL;
+random = NULL;
+}
+};
+*/
+//class Solution {
+//public:
+//	Node* buyNode(int val)
+//	{
+//		Node* newNode = (Node*)malloc(sizeof(Node));
+//		if (NULL == newNode)
+//		{
+//			return NULL;
+//		}
+//		newNode->val = val;
+//		newNode->next = NULL;
+//		newNode->random = NULL;
+//
+//		return newNode;
+//	}
+//
+//	Node* copyRandomList(Node* head)
+//	{
+//		if (NULL == head)
+//		{
+//			return NULL;
+//		}
+//		Node* newNode = NULL;
+//		Node* cur = head;
+//		while (cur)
+//		{
+//			newNode = buyNode(cur->val);
+//			newNode->next = cur->next;
+//			cur->next = newNode;
+//			cur = newNode->next;
+//		}
+//		//找random值
+//		cur = head;
+//		while (cur)
+//		{
+//			newNode = cur->next;
+//			if (cur->random)     //原来的节点的random不为空
+//			{
+//				newNode->random = cur->random->next;
+//			}
+//			cur = newNode->next;
+//		}
+//
+//		//把原来的节点全部拆掉
+//		Node* NewHead = head->next;
+//		cur = head;
+//		while (cur->next)		//一个巧妙的拆法
+//		{
+//			newNode = cur->next;
+//			cur->next = newNode->next;
+//			cur = newNode;
+//		}
+//		return NewHead;
+//	}
+//};
