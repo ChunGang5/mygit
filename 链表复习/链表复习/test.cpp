@@ -599,3 +599,75 @@ random = NULL;
 //		return NewHead;
 //	}
 //};
+
+#include<iostream>
+
+struct ListNode {
+int val;
+struct ListNode *next;
+ListNode(int x) :
+val(x), next(NULL) {
+}
+};
+
+class Solution {
+public:
+	ListNode* deleteDuplication(ListNode* pHead)
+	{
+		if (NULL == pHead || NULL == pHead->next)
+		{
+			return pHead;
+		}
+		ListNode* head=new ListNode(0);	//这一步错了
+		head->next = pHead;
+		ListNode* prev = head;
+		ListNode* cur = head->next;
+		while (cur)
+		{
+			if (cur->next != NULL && cur->val == cur->next->val)
+			{
+				while (cur->next != NULL && cur->val == cur->next->val)
+				{
+					cur = cur->next;
+				}
+				prev->next = cur->next;
+				cur = cur->next;
+			}
+			else
+			{
+				prev = prev->next;
+				cur = cur->next;
+			}
+		}
+		return head->next;
+	}
+	ListNode* BuyNode(int val)
+	{
+		ListNode* p = (ListNode*)malloc(sizeof(ListNode));
+		p->val = val;
+		p->next = NULL;
+		return p;
+	}
+};
+
+int main()
+{
+	Solution s;
+	ListNode* p1 = s.BuyNode(1);
+	ListNode* p2 = s.BuyNode(2);
+	ListNode* p3 = s.BuyNode(3);
+	ListNode* p33 = s.BuyNode(3);
+	ListNode* p4 = s.BuyNode(4);
+	ListNode* p44 = s.BuyNode(4);
+	ListNode* p5 = s.BuyNode(5);
+
+	p1->next = p2;
+	p2->next = p3;
+	p3->next = p33;
+	p33->next = p4;
+	p4->next = p44;
+	p44->next = p5;
+
+	p1 = s.deleteDuplication(p1);
+	return 0;
+}
