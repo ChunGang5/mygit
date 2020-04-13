@@ -11,4 +11,15 @@ typedef struct DListNode
 
 DListNode* BuyDListNode(int val);
 DListNode* CreatDList();
+
 void DListNodePushBack(DListNode* pHead, int val);
+void DListNodePopBack(DListNode* pHead);
+
+void DListInsert(DListNode* pos, int val);
+void DListErass(DListNode* pos);
+
+void DListPushFront(DListNode* pHead, int val);
+void DListPopFront(DListNode* pHead);
+
+DListNode* DListFind(DListNode* pHead, int val);
+void DListDestroy(DListNode** pHead);
