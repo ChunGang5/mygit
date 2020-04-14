@@ -917,3 +917,90 @@ int main()
 //		return flase;
 //	}
 //};
+
+//从左下角开始查找
+//class Solution {
+//public:
+//	bool Find(int target, vector<vector<int> > array) {
+//		int rowCount = array.size();
+//		int colCount = array[0].size();
+//		int row = 0;
+//		int col = colCount - 1;
+//		bool found = false;
+//		if (rowCount>0 && colCount>0)
+//		{
+//			while (row<rowCount && col >= 0)
+//			{
+//				if (target == array[row][col])
+//				{
+//					found = true;
+//					break;
+//				}
+//				else if (target < array[row][col])
+//				{
+//					--col;
+//				}
+//				else
+//					++row;
+//			}
+//		}
+//		return found;
+//	}
+//};
+//
+//
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	vector<vector<int>> array(5,vector<int>(8));
+//	int rows = array.size();
+//	int cols = array[0].size();
+//
+//	cout << rows << endl;
+//	cout << cols << endl;
+//	cin.get();
+//	return 0;
+//
+//}
+
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<minmax.h>
+using namespace std;
+class Solution {
+public:
+	int lengthOfLongestSubstring(string s) {
+		int freq[256] = { 0 };
+		int l = 0, r = -1; //滑动窗口为s[l...r]
+		int res = 0;
+		// 整个循环从 l == 0; r == -1 这个空窗口开始
+		// 到l == s.size(); r == s.size()-1 这个空窗口截止
+		// 在每次循环里逐渐改变窗口, 维护freq, 并记录当前窗口中是否找到了一个新的最优值
+		while (l < s.size()){
+			if (r + 1 < s.size() && freq[s[r + 1]] == 0){
+				r++;
+				freq[s[r]]++;
+			}
+			else {   //r已经到头 || freq[s[r+1]] == 1
+				freq[s[l]]--;
+				l++;
+			}
+			res = max(res, r - l + 1);
+		}
+		return res;
+	}
+};
+
+int main()
+{
+	string s = "abcabcbb";
+	Solution S;
+	S.lengthOfLongestSubstring(s);
+	cin.get();
+	return 0;
+
+}
