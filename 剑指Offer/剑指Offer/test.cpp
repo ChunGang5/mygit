@@ -100,23 +100,3 @@
 //		return found;
 //	}
 //};
-
-
-#include<iostream>
-#include<string>
-using namespace std;
-#include <stdio.h>
-#include <stdlib.h>
-
-int main()
-{
-	int a;
-	char *ptr1 = "-12345";
-
-	a = atoi(ptr1);
-
-	printf("a = %d,%d/n", a);
-	cin.get();
-
-	return 0;
-}
