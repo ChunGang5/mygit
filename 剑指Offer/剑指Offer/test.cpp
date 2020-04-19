@@ -100,3 +100,49 @@
 //		return found;
 //	}
 //};
+
+//05：替换空格
+//class Solution {
+//public:
+//	void replaceSpace(char *str, int length)
+//	{
+//		if (NULL == str || length <= 0)
+//		{
+//			return;
+//		}
+//		int OldLength = 0;
+//		int NumberBlank = 0;
+//		int i = 0;
+//		//统计字符串个数和空格个数
+//		while (str[i] != '\0')
+//		{
+//			OldLength++;
+//			if (str[i] == ' ')
+//				NumberBlank++;
+//			i++;
+//		}
+//		int NewLength = OldLength + 2 * NumberBlank;
+//		if (NewLength>length)    //length是字符串的容量，如果NewLength>length那么就不能进行替换了，超出容量了
+//			return;
+//		//开始替换
+//		int IndexOld = OldLength;
+//		int IndexNew = NewLength;
+//		while (IndexOld >= 0 && IndexNew>IndexOld)    //>=0是因为字符串第一个字符下标是0；如果原字符串没有空格
+//			//那Indexold==IndexNew就不用处理，更没有<这个情况
+//		{
+//			if (str[IndexOld] == ' ')
+//			{
+//				str[IndexNew--] = '0';    //后置--，先用后减
+//				str[IndexNew--] = '2';
+//				str[IndexNew--] = '%';
+//				//IndexOld--;
+//			}
+//			else
+//			{
+//				//str[IndexNew--]=str[IndexOld--];
+//				str[IndexNew--] = str[IndexOld];
+//			}
+//			IndexOld--;    //放在这儿改变IndexOld比较方便，因为每次IndexOld都需要向前走一步
+//		}
+//	}
+//};
