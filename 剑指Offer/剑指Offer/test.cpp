@@ -146,3 +146,105 @@
 //		}
 //	}
 //};
+
+//06：反向打印链表
+//方法一：栈
+//class Solution {
+//public:
+//	vector<int> printListFromTailToHead(ListNode* head)
+//	{
+//		vector<int> value;
+//		std::stack<ListNode*> nodes;
+//		ListNode* cur = head;
+//		while (cur)
+//		{
+//			nodes.push(cur);
+//			cur = cur->next;
+//		}
+//		while (!nodes.empty())
+//		{
+//			cur = nodes.top();
+//			value.push_back(cur->val);
+//			nodes.pop();
+//		}
+//		return value;
+//	}
+//};
+//方法二：递归思路
+//class Solution {
+//public:
+//	vector<int> value;    //数组要在函数外定义，不然就会递归几次生成几个数组
+//	vector<int> printListFromTailToHead(ListNode* head)
+//	{
+//		ListNode* cur = head;
+//		if (cur)
+//		{
+//			if (cur->next)    //检验下一个节点是否为空，这才是递归地条件
+//			{
+//				printListFromTailToHead(cur->next);
+//			}
+//			value.push_back(cur->val);
+//		}
+//		return value;
+//	}
+//};
+//方法三：借助数组
+//class Solution {
+//public:
+//
+//	vector<int> printListFromTailToHead(ListNode* head)
+//	{
+//		vector<int> value;
+//		ListNode* cur = head;
+//		while (cur)
+//		{
+//			value.push_back(cur->val);
+//			cur = cur->next;
+//		}
+//		reverse(value.begin(), value.end());
+//		return value;
+//	}
+//};
+
+//09：用两个栈实现队列
+//class Solution
+//{
+//public:
+//	void push(int node)
+//	{
+//		//直接在push的时候就将数排列处理好，stack2只是一个辅助队列
+//		while (!stack1.empty())
+//		{
+//			stack2.push(stack1.top());
+//			stack1.pop();
+//		}
+//		stack2.push(node);
+//		while (!stack2.empty())
+//		{
+//			stack1.push(stack2.top());
+//			stack2.pop();
+//		}
+//	}
+//
+//	int pop()
+//	{
+//		int value = stack1.top();
+//		stack1.pop();
+//		return value;
+//	}
+//
+//private:
+//	stack<int> stack1;
+//	stack<int> stack2;
+//};
+
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	
+	cin.get();
+	return 0;
+}
