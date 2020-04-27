@@ -1,0 +1,12 @@
+﻿生成启动时间为 2020/4/27 17:33:06。
+     1>项目“F:\C语言\Code\二叉树\二叉树\二叉树.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         F:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BinaryTree.cpp
+         BinaryTree.cpp
+     1>f:\c语言\code\二叉树\二叉树\binarytree.cpp(140): error C2440: “return”: 无法从“bool”转换为“BTNode *”
+                 从整型转换为指针类型要求 reinterpret_cast、C 样式转换或函数样式转换
+     1>已完成生成项目“F:\C语言\Code\二叉树\二叉树\二叉树.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.62
