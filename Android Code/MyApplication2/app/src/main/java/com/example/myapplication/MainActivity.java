@@ -12,8 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textview1=(TextView)findViewById(R.id.txtv1);
-        textview1.setTextColor(Color.rgb(0,255,0));
+       textview1=(TextView)findViewById(R.id.txtv1);
+       textview1.setTextColor(Color.rgb(0,0,200));
+
 
     }
 }
