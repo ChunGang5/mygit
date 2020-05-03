@@ -3,7 +3,11 @@
 #include<iostream>
 #include<malloc.h>
 #include<assert.h>
+#include<queue>
+#include<vector>
 using namespace std;
+
+
 
 typedef int BTDataType;
 typedef struct BinTreeNode
@@ -153,6 +157,29 @@ BTNode* GetParent(BTNode* pRoot, BTNode* pNode)
 	return GetParent(pRoot->pLeft, pNode) || GetParent(pRoot->pRight, pNode);
 }
 
+void LevelOrder(BTNode* pRoot)
+{
+	queue<BTNode*> BirayQueue;
+	if (pRoot)
+	{
+		BirayQueue.push(pRoot);
+	}
+	while (!BirayQueue.empty())
+	{
+		BTNode* cur = BirayQueue.front();
+		if (NULL != cur->pLeft)
+		{
+			BirayQueue.push(cur->pLeft);
+			BirayQueue.
+		}
+		if (NULL != cur->pRight)
+		{
+			BirayQueue.push(cur->pRight);
+		}
+		cout << cur->val << endl;
+		BirayQueue.pop();
+	}
+}
 //////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -167,6 +194,7 @@ int main()
 	cout << GetLeafNodeCount(pRoot) << endl;
 	cout << GetHeight(pRoot) << endl;
 	cout << GetKLevelCount(pRoot, 2) << endl;
+
 	cin.get();
 	return 0;
 }
