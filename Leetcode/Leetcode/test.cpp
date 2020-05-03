@@ -220,3 +220,127 @@ public:
 * int param_3 = obj->peek();
 * bool param_4 = obj->empty();
 */
+
+
+
+
+//144：二叉树的前序遍历
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+
+//方法一：递归法
+//class Solution {
+//public:
+//	vector<int> value;
+//	vector<int> preorderTraversal(TreeNode* root)
+//	{
+//		if (NULL != root)
+//		{
+//			value.push_back(root->val);
+//			preorderTraversal(root->left);
+//			preorderTraversal(root->right);
+//		}
+//		return value;
+//	}
+//};
+
+//方法二：栈
+//class Solution {
+//public:
+//	vector<int> value;
+//	vector<int> preorderTraversal(TreeNode* root)
+//	{
+//		stack<TreeNode*> TreeStack;
+//		if (root)
+//		{
+//			TreeStack.push(root);
+//		}
+//		while (!TreeStack.empty())
+//		{
+//			TreeNode* cur = TreeStack.top();
+//			value.push_back(cur->val);
+//			TreeStack.pop();
+//			//先push右孩子，再push左孩子，这样top的时候就符合根左右，深度优先遍历
+//			if (cur->right != NULL)
+//			{
+//				TreeStack.push(cur->right);
+//			}
+//			if (cur->left != NULL)
+//			{
+//				TreeStack.push(cur->left);
+//			}
+//		}
+//		return value;
+//	}
+//};
+
+//100：相同的树
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	bool isSameTree(TreeNode* p, TreeNode* q)
+//	{
+//		if (NULL == p&&NULL == q)
+//		{
+//			return true;
+//		}
+//		//上一步已经判断了两个树都为空的清况了，这一步就判断一棵树为空的情况
+//		if (NULL == p || NULL == q)
+//		{
+//			return false;
+//		}
+//		return p->val == q->val&&isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+//	}
+//};
+
+//101. 对称二叉树
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+
+//方法一：递归
+//class Solution {
+//public:
+//	bool isSameTree(TreeNode* p, TreeNode* q)
+//	{
+//		if (NULL == p&&NULL == q)
+//		{
+//			return true;
+//		}
+//		//上一步已经判断了两个树都为空的清况了，这一步就判断一棵树为空的情况
+//		if (NULL == p || NULL == q)
+//		{
+//			return false;
+//		}
+//		return p->val == q->val&&isSameTree(p->left, q->right) && isSameTree(p->right, q->left);
+//	}
+//	bool isSymmetric(TreeNode* root)
+//	{
+//		if (NULL == root)
+//		{
+//			return true;
+//		}
+//		return isSameTree(root->left, root->right);
+//	}
+//};
