@@ -344,3 +344,118 @@ public:
 //		return isSameTree(root->left, root->right);
 //	}
 //};
+//方法二：用队列迭代
+//class Solution {
+//public:
+//	bool isSymmetric(TreeNode* root)
+//	{
+//		queue<TreeNode*> Left;
+//		queue<TreeNode*> Right;
+//		if (root)
+//		{
+//			Left.push(root->left);
+//			Right.push(root->right);
+//		}
+//		while (!Left.empty() && !Right.empty())
+//		{
+//			TreeNode* Lcur = Left.front();
+//			TreeNode* Rcur = Right.front();
+//			if (Lcur == NULL&&Rcur == NULL)
+//			{
+//				continue;
+//			}
+//			if (Lcur == NULL || Rcur == NULL)
+//			{
+//				return false;
+//			}
+//			if (Lcur->val != Rcur->val)
+//			{
+//				return false;
+//			}
+//			Left.push(Lcur->left);
+//			Left.push(Lcur->right);
+//			Right.push(Rcur->right);
+//			Right.push(Rcur->left);
+//			Left.pop();
+//			Right.pop();
+//		}
+//		return true;
+//	}
+//};
+
+//94：94. 二叉树的中序遍历
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//方法一：递归
+//class Solution {
+//public:
+//	vector<int> value;
+//	vector<int> inorderTraversal(TreeNode* root)
+//	{
+//		if (root)
+//		{
+//			inorderTraversal(root->left);
+//			value.push_back(root->val);
+//			inorderTraversal(root->right);
+//		}
+//		return value;
+//	}
+//};
+
+//class Solution {
+//public:
+//	vector<int> value;
+//	vector<int> inorderTraversal(TreeNode* root)
+//	{
+//		stack<TreeNode*> s;
+//		if (root)
+//		{
+//			s.push(root);
+//		}
+//		while (!s.empty())
+//		{
+//			while (root)
+//			{
+//				s.push(root);
+//				root = root->left;
+//			}
+//			s.pop();
+//			root = s.top();
+//			value.push_back(root->val);
+//			root = root->right;
+//		}
+//		return value;
+//	}
+//};
+
+//104. 二叉树的最大深度
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	int maxDepth(TreeNode* root)
+//	{
+//		if (NULL == root)
+//		{
+//			return 0;
+//		}
+//		int LeftDepth = maxDepth(root->left);
+//		int RigthDepth = maxDepth(root->right);
+//		return LeftDepth >= RigthDepth ? LeftDepth + 1 : RigthDepth + 1;
+//	}
+//};
+
