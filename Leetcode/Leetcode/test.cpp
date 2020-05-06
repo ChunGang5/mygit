@@ -459,3 +459,64 @@ public:
 //	}
 //};
 
+//二叉树的构建以及遍历
+//#include<iostream>
+//#include<string>
+//using namespace std;
+//struct TreeNode {
+//	char val;
+//	TreeNode *left;
+//	TreeNode *right;
+//	TreeNode(char x) : val(x), left(NULL), right(NULL) {}
+//};
+//int i = 0;
+//string s;
+//TreeNode* CreateTree()
+//{
+//	char c = s[i++];
+//	if (c == '#')
+//		return NULL;
+//	TreeNode* root = new TreeNode(c);
+//	root->left = CreateTree();
+//	root->right = CreateTree();
+//	return root;
+//}
+//void DelTree(TreeNode* root)
+//{
+//	if (root)
+//	{
+//		if (root->left != NULL)
+//		{
+//			DelTree(root->left);
+//			root->left = NULL;
+//		}
+//		if (root->right != NULL)
+//		{
+//			DelTree(root->right);
+//			root->right = NULL;
+//		}
+//	}
+//	delete root;
+//}
+//void inOrderTraversal(TreeNode* root)
+//{
+//	if (root)
+//	{
+//		inOrderTraversal(root->left);
+//		cout << root->val << " ";
+//		inOrderTraversal(root->right);
+//	}
+//}
+//int main()
+//{
+//
+//	while (cin >> s)
+//	{
+//		i = 0;
+//		TreeNode* root = CreateTree();
+//		inOrderTraversal(root);
+//		cout << endl;
+//		DelTree(root);
+//	}
+//	return 0;
+//}
