@@ -520,3 +520,154 @@ public:
 //	}
 //	return 0;
 //}
+
+//606. 根据二叉树创建字符串
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	string tree2str(TreeNode* t)
+//	{
+//		if (t == NULL)
+//		{
+//			return "";
+//		}
+//		if (t->left == NULL&&t->right == NULL)
+//		{
+//			return to_string(t->val) + "";
+//		}
+//		//题目要求只有左子树为空的时候加空括号，右子树为空不管
+//		if (t->right == NULL)
+//		{
+//			return to_string(t->val) + "(" + tree2str(t->left) + ")";
+//		}
+//		//根节点、左右子树都存在的情况
+//		return to_string(t->val) + "(" + tree2str(t->left) + ")(" + tree2str(t->right) + ")";
+//	}
+//};
+
+//102. 二叉树的层序遍历
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	vector<vector<int>> levelOrder(TreeNode* root)
+//	{
+//		//这个题的意思是将二叉树的结果按层存放进二维数组里
+//		vector<vector<int>> value;
+//		queue<TreeNode*> qu;
+//		if (NULL == root)
+//		{
+//			return value;
+//		}
+//		qu.push(root);
+//		while (!qu.empty())
+//		{
+//			vector<int> temp;
+//			//知道队列里有几个元素，就要处理几次，存放进数组里，找出它们下一层的所有元素
+//			int len = qu.size();
+//			for (int i = 0; i<len; i++)
+//			{
+//				TreeNode* cur = qu.front();
+//				qu.pop();
+//				temp.push_back(cur->val);
+//				if (cur->left)
+//				{
+//					qu.push(cur->left);
+//				}
+//				if (cur->right)
+//				{
+//					qu.push(cur->right);
+//				}
+//			}
+//			//遍历完一层以后将结果存入二维数组里
+//			value.push_back(temp);
+//		}
+//		return value;
+//	}
+//};
+
+//105. 从前序与中序遍历序列构造二叉树
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder)
+//	{
+//		return pre_order(0, preorder.size() - 1, 0, inorder.size() - 1, preorder, inorder);
+//	}
+//	TreeNode* pre_order(int leftpre, int rightpre, int leftin, int rightin, vector<int> &pre, vector<int> &in)
+//	{
+//		if (leftpre>rightpre || leftin>rightin)
+//		{
+//			return NULL;
+//		}
+//		TreeNode* root = new TreeNode(pre[leftpre]);
+//		int rootin = leftin;
+//		while (rootin <= rightin&&in[rootin] != pre[leftpre])
+//		{
+//			rootin++;
+//		}
+//		int gap = rootin - leftin;
+//		root->left = pre_order(leftpre + 1, leftpre + gap, leftin, rootin - 1, pre, in);
+//		root->right = pre_order(leftpre + gap + 1, rightpre, rootin + 1, rightin, pre, in);
+//		return root;
+//	}
+//};
+
+//106. 从中序与后序遍历序列构造二叉树
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+//class Solution {
+//public:
+//	TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder)
+//	{
+//		return in_post(0, inorder.size() - 1, 0, postorder.size() - 1, inorder, postorder);
+//	}
+//	TreeNode* in_post(int leftin, int rightin, int leftpost, int rightpost, vector<int> &in, vector<int> &post)
+//	{
+//		if (leftin>rightin || leftpost>rightpost)
+//		{
+//			return NULL;
+//		}
+//		TreeNode* root = new TreeNode(post[rightpost]);
+//		int rootin = leftin;
+//		while (rootin <= rightin&&post[rightpost] != in[rootin])
+//		{
+//			rootin++;
+//		}
+//		int gap = rootin - leftin;
+//		root->left = in_post(leftin, rootin - 1, leftpost, leftpost + gap - 1, in, post);
+//		root->right = in_post(rootin + 1, rightin, leftpost + gap, rightpost - 1, in, post);
+//		return root;
+//	}
+//};
+
