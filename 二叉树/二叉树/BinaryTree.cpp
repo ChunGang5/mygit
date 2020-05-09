@@ -194,7 +194,8 @@ int main()
 	cout << GetLeafNodeCount(pRoot) << endl;
 	cout << GetHeight(pRoot) << endl;
 	cout << GetKLevelCount(pRoot, 2) << endl;
-
+	string s;
+	cin.getline(cin, s);
 	cin.get();
 	return 0;
 }
