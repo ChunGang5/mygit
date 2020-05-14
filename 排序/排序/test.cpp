@@ -1,4 +1,6 @@
 #include<iostream>
+#include<malloc.h>
+#include<stdio.h>
 using namespace std;
 //插入排序
 //void InserSort(int arr[], int n)
@@ -123,49 +125,105 @@ using namespace std;
 
 //快速排序
 //划分函数
-int partition(int *arr, int i, int j)
+//int partition(int *arr, int i, int j)
+//{
+//	//划分的元素，我取最左边的数
+//	int temp = arr[i];
+//	while (i < j)
+//	{
+//		//从右向左找到第一个小于划分值的数
+//		while (arr[j] >= temp&&i<j)
+//		{
+//			j--;
+//		}
+//		if (i < j)
+//		{
+//			arr[i] = arr[j];
+//			i++;
+//		}
+//		//从左往右找到第一个大于划分值的数的位置
+//		while (arr[i] <= temp&&i < j)
+//		{
+//			i++;
+//		}
+//		if (i < j)
+//		{
+//			arr[j] = arr[i];
+//			j--;
+//		}
+//	}
+//	//当i=j时，本次划分完成
+//	arr[i] = temp;
+//	//将本次划分的元素所在下标返回，依据这个划分范围
+//	return i;
+//}
+//void QuickSort(int *arr, int i, int j)
+//{
+//	int k;
+//	while (i < j)
+//	{
+//		k = partition(arr, i, j);
+//		//递归划分左边
+//		QuickSort(arr, i, k - 1);
+//		//递归划分右边
+//		QuickSort(arr, k + 1, j);
+//	}
+//}
+
+//归并排序
+void MergeData(int array[], int left, int mid, int right, int *temp)
 {
-	//划分的元素，我取最左边的数
-	int temp = arr[i];
-	while (i < j)
+	//划分左边区域,左闭右开
+	int begin1 = left, end1 = mid;
+	//划分右边区域
+	int begin2 = mid, end2 = right;
+	int index = left;
+	while (begin1 < end1&&begin2 < end2)
 	{
-		//从右向左找到第一个小于划分值的数
-		while (arr[j] >= temp&&i<j)
+		if (array[begin1] <= array[begin2])
 		{
-			j--;
+			temp[index++] = array[begin1++];
 		}
-		if (i < j)
+		else
 		{
-			arr[i] = arr[j];
-			i++;
-		}
-		//从左往右找到第一个大于划分值的数的位置
-		while (arr[i] <= temp&&i < j)
-		{
-			i++;
-		}
-		if (i < j)
-		{
-			arr[j] = arr[i];
-			j--;
+			temp[index++] = array[begin2++];
 		}
 	}
-	//当i=j时，本次划分完成
-	arr[i] = temp;
-	//将本次划分的元素所在下标返回，依据这个划分范围
-	return i;
+	//右边元素比完了，左边剩余
+	while (begin1 < end1)
+	{
+		temp[index++] = array[begin1++];
+	}
+	//左边元素比完了，右边剩余
+	while (begin2 < end2)
+	{
+		temp[index++] = array[begin2++];
+	}
 }
-void QuickSort(int *arr, int i, int j)
+void _MergeSort(int array[], int left, int right, int *temp)
 {
-	int k;
-	while (i < j)
+	if (right - left>1)
 	{
-		k = partition(arr, i, j);
-		//递归划分左边
-		QuickSort(arr, i, k - 1);
-		//递归划分右边
-		QuickSort(arr, k + 1, j);
+		int mid = left + ((right - left) >> 1);
+		//划分左区间
+ 		_MergeSort(array, left, mid, temp);
+		//划分右区间
+		_MergeSort(array, mid, right, temp);
+		//合并左右区间为有序序列
+		MergeData(array, left, mid, right, temp);
+		//排列为有序之后将辅助空间内的有序元素拷贝回原空间
+		memcpy(array + left, temp + left, (right - left)*sizeof(int));
 	}
+}
+void MergeSort(int array[], int size)
+{
+	int *temp = (int*)malloc(sizeof(array[0]) * size);
+	if (temp == NULL)
+	{
+		return;
+	}
+	_MergeSort(array, 0, size, temp);
+	free(temp);
 }
 int main()
 {
@@ -176,11 +234,8 @@ int main()
 	//QuickSelectionSort(arr, n);
 	//HeapSort(arr, n);
 	//BubbleSort(arr, n);
-	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
-	{
-		cout << arr[i] << endl;
-	}
-	QuickSort(arr, 0, n-1);
+	MergeSort(arr,n);
+	//QuickSort(arr, 0, n-1);
 	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
 	{
 		cout << arr[i] << endl;
