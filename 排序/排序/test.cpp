@@ -225,6 +225,9 @@ void MergeSort(int array[], int size)
 	_MergeSort(array, 0, size, temp);
 	free(temp);
 }
+
+
+
 int main()
 {
 	int arr[8] = { 4, 3, 7, 1, 2, 8, 6, 5 };
