@@ -141,5 +141,51 @@
 //};
 
 
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	vector<int> n(10);
+//
+//	//vector<vector<int>> grid(m, vector<int>(n, 1));
+//
+//}
 
+//链接：https://www.nowcoder.com/questionTerminal/166eaff8439d4cd898e3ba933fbc6358?toCommentId=6179258
+//来源：牛客网
+//
+//[编程题]unique - paths
+//热度指数：11767时间限制：C / C++ 1秒，其他语言2秒空间限制：C / C++ 32M，其他语言64M
+//算法知识视频讲解
+//一个机器人在m×n大小的地图的左上角（起点，下图中的标记“start"的位置）。
+//机器人每次向下或向右移动。机器人要到达地图的右下角。（终点，下图中的标记“Finish"的位置）。
+//可以有多少种不同的路径从起点走到终点？
+//class Solution {
+//public:
+//	/**
+//	*
+//	* @param m int整型
+//	* @param n int整型
+//	* @return int整型
+//	*/
+//	int uniquePaths(int m, int n)
+//	{
+//		//1、初始化一个二维数组，将数组内元素都置为1
+//		//因为第一行和第一列走到所有位置的路径只有一条（只能向下，向右走）
+//		vector<vector<int>> grid(m, vector<int>(n, 1));
+//		//2、状态：gird[i][j]；代表从grid[0][0]走到i,j位置的路径总数
+//		//3、状态转移方程：grid[i][j]=grid[i-1][j]+grid[i][j-1]
+//		//因为只能向下、向右走
+//		for (int i = 1; i<m; i++)
+//		{
+//			for (int j = 1; j<n; j++)
+//			{
+//				grid[i][j] = grid[i - 1][j] + grid[i][j - 1];
+//			}
+//		}
+//		//4、返回值：到达finish位置，grid[m-1][n-1]
+//		return grid[m - 1][n - 1];
+//	}
+//};
 
