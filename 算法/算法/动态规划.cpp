@@ -189,3 +189,92 @@
 //	}
 //};
 
+//链接：https://www.nowcoder.com/questionTerminal/3cdf08dd4e974260921b712f0a5c8752
+//来源：牛客网
+//
+//unique - paths - ii
+//热度指数：11507时间限制：C / C++ 1秒，其他语言2秒空间限制：C / C++ 32M，其他语言64M
+//算法知识视频讲解
+//继续思考题目"Unique Paths":
+//如果在图中加入了一些障碍，有多少不同的路径？
+//分别用0和1代表空区域和障碍
+//例如
+//下图表示有一个障碍在3 * 3的图中央。
+//[↵[0, 0, 0], ↵[0, 1, 0], ↵[0, 0, 0]↵] 
+//有2条不同的路径
+//备注：m和n不超过100.
+//class Solution {
+//public:
+//	/**
+//	*
+//	* @param obstacleGrid int整型vector<vector<>>
+//	* @return int整型
+//	*/
+//	int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid)
+//	{
+//		if (obstacleGrid.empty())
+//		{
+//			return 0;
+//		}
+//		//先申请一个和obstacleGrid大小一致的数组，并全置0；用这个数组存储路径数
+//		int m = obstacleGrid.size();
+//		int n = obstacleGrid[0].size();
+//		vector<vector<int>> PathSum(m, vector<int>(n, 0));
+//		//1、初始化边界，将第一行和第一列到达各元素的路径数存储起来
+//		for (int i = 0; i<m; i++)
+//		{
+//			//如果元素[i][0]位置有障碍，那么此元素和它之后的都走不通
+//			if (obstacleGrid[i][0] == 1)
+//				break;
+//			PathSum[i][0] = 1;
+//		}
+//		for (int i = 0; i<n; i++)
+//		{
+//			//如果元素[0][i]位置有障碍，那么此元素和它之后的都走不通
+//			if (obstacleGrid[0][i] == 1)
+//				break;
+//			PathSum[0][i] = 1;
+//		}
+//		//2、状态PathSum[i][j]:代表走到[i][j]位置的路径总数
+//		//3、状态转移方程：F[i][j]=F[i-1][j]+F[i][j-1];
+//		//        if(此位置不通)F[i][j]=0
+//		for (int i = 1; i<m; i++)
+//		{
+//			for (int j = 1; j<n; j++)
+//			{
+//				if (obstacleGrid[i][j] == 1)
+//				{
+//					PathSum[i][j] = 0;
+//				}
+//				else
+//				{
+//					PathSum[i][j] = PathSum[i - 1][j] + PathSum[i][j - 1];
+//				}
+//			}
+//		}
+//		//4、返回值
+//		return PathSum[m - 1][n - 1];
+//	}
+//};
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+	int m, n;
+	cin >> m >> n;
+	vector<vector<int>> arr(m, vector<int>(n));
+	for (int i = 0; i<m; i++)
+	{
+		vector<int> val;
+		for (int j = 0; j<n; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	cin.get();
+	return 0;
+}
