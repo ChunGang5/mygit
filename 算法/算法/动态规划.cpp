@@ -257,6 +257,50 @@
 //	}
 //};
 
+//链接：https://www.nowcoder.com/questionTerminal/708f0442863a46279cce582c4f508658
+//来源：牛客网
+//
+//编程题]01背包
+//热度指数：2435时间限制：C / C++ 1秒，其他语言2秒空间限制：C / C++ 128M，其他语言256M
+//算法知识视频讲解
+//现有一个容量大小为V的背包和N件物品，每件物品有两个属性，体积和价值，请问这个背包最多能装价值为多少的物品？
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	int v, n;
+//	cin >> v >> n;
+//	vector<int> weight, value;
+//	for (int i = 0; i < n; i++)
+//	{
+//		int a, b;
+//		cin >> a >> b;
+//		weight.push_back(a);
+//		value.push_back(b);
+//	}
+//	//1、初始化
+//	vector<vector<int>> dp(n + 1, vector<int>(v + 1));
+//	for (int i = 1; i <= n; i++)
+//	{
+//		//2、状态 dp[i][j]代表前i个物品在j重量下的最大价值
+//		//3、状态转移方程：(1)新物品的重量大于容量，不放；dp[i][j]=dp[i-1][j]
+//		//(2)小于容量；判断放入新物品总价值更大还是不放总价值更大
+//		for (int j = 1; j <= v; j++)
+//		{
+//			//由于物品属性数组我是从0号位置放的，所以格式上和逻辑上有点出入
+//			if (weight[i - 1] > j)
+//			{
+//				dp[i][j] = dp[i - 1][j];
+//			}
+//			else
+//			{
+//				dp[i][j] = max(dp[i - 1][j - weight[i - 1]] + value[i - 1], dp[i - 1][j]);
+//			}
+//		}
+//	}
+//	cout << dp[n][v] << endl;
+//}
 
 
 #include<iostream>
@@ -264,7 +308,7 @@
 using namespace std;
 int main()
 {
-	int m, n;
+	/*int m, n;
 	cin >> m >> n;
 	vector<vector<int>> arr(m, vector<int>(n));
 	for (int i = 0; i<m; i++)
@@ -274,7 +318,17 @@ int main()
 		{
 			cin >> arr[i][j];
 		}
-	}
+	}*/
+	/*vector<int> wei(1), val(1);
+	for (int i = 0; i < 3; i++)
+	{
+		int a, b;
+		cin >> a >> b;
+		wei.push_back(a);
+		val.push_back(b);
+	}*/
+	int ta[][3] = { { 0, , 2 }, {}, { 3, 4, 5 } };
 	cin.get();
 	return 0;
 }
+
