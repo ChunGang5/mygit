@@ -108,20 +108,13 @@ void Test2()
 	Test* p2 = (Test*)malloc(sizeof(Test) * 10);
 	free(p2);
 }
-void Test2()
-{
-	// 申请单个Test类型的对象
-	Test* p1 = new Test;
-	delete p1;
-	// 申请10个Test类型的对象
-	Test* p2 = new Test[10];
-	delete[] p2;
-}
 int main()
 {
 	/*int *p = new int(100);
 	int *ptr = new int[10]{1,2,3,4,5,7,6};
 	int *ptr1 = (int*)malloc(sizeof(int));*/
 	Test2();
+	_CrtDumpMemoryLeaks();
+	cin.get();
 	return 0;
 }
