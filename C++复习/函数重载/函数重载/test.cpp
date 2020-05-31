@@ -84,37 +84,55 @@ using namespace std;
 //	static int b;
 //};
 //int A::b = 1;
-class Test
-{
-public:
-	Test()
-		: _data(0)
-	{
-		cout << "Test():" << this << endl;
-	}
-	~Test()
-	{
-		cout << "~Test():" << this << endl;
-	}
-private:
-	int _data;
-};
-void Test2()
-{
-	// 申请单个Test类型的空间
-	Test* p1 = (Test*)malloc(sizeof(Test));
-	free(p1);
-	// 申请10个Test类型的空间
-	Test* p2 = (Test*)malloc(sizeof(Test) * 10);
-	free(p2);
-}
+//class Test
+//{
+//public:
+//	Test()
+//		: _data(0)
+//	{
+//		cout << "Test():" << this << endl;
+//	}
+//	~Test()
+//	{
+//		cout << "~Test():" << this << endl;
+//	}
+//private:
+//	int _data;
+//};
+//void Test2()
+//{
+//	// 申请单个Test类型的空间
+//	Test* p1 = (Test*)malloc(sizeof(Test));
+//	free(p1);
+//	// 申请10个Test类型的空间
+//	Test* p2 = (Test*)malloc(sizeof(Test) * 10);
+//	free(p2);
+//}
+//int main()
+//{
+//	/*int *p = new int(100);
+//	int *ptr = new int[10]{1,2,3,4,5,7,6};
+//	int *ptr1 = (int*)malloc(sizeof(int));*/
+//	/*Test2();
+//	_CrtDumpMemoryLeaks();*/
+//	/*volatile int i = 0;
+//	int j = i;
+//	int k = i;
+//	const volatile int a = 10;*/
+//	//Yes
+//	extern int i;
+//	//NO
+//	extern double j;
+//	j = 3.0;
+//	//Yes
+//	extern void fun(void);
+//	cin.get();
+//	return 0;
+//}
+
+extern "C" int Add(int left, int right);
 int main()
 {
-	/*int *p = new int(100);
-	int *ptr = new int[10]{1,2,3,4,5,7,6};
-	int *ptr1 = (int*)malloc(sizeof(int));*/
-	Test2();
-	_CrtDumpMemoryLeaks();
-	cin.get();
+	Add(1, 2);
 	return 0;
 }
