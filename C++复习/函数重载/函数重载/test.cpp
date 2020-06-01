@@ -130,9 +130,16 @@ using namespace std;
 //	return 0;
 //}
 
-extern "C" int Add(int left, int right);
-int main()
-{
-	Add(1, 2);
-	return 0;
-}
+//extern "C" int Add(int left, int right);
+//int main()
+//{
+//	Add(1, 2);
+//	return 0;
+//}
+//int main()
+//{
+//	int* p = (int*)malloc(sizeof(int));
+//	realloc(p, 20);
+//	return 0;
+//}
+
